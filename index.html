@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Projeto de extensão do IFSP Catanduva que ensina moradores de Monte Alto-SP a reconhecer golpes virtuais e proteger dados, benefícios e dinheiro.">
+<title>Início — Conexão Cidadã</title>
+
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#010B39">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+<p id="aviso-acessibilidade" class="so-leitor-tela" role="status" aria-live="polite"></p>
+
+<div class="barra-acesso">
+  <div class="container barra-acesso__interna">
+    <span class="barra-acesso__rotulo">Ajuste a leitura</span>
+    <div class="controle-fonte" role="group" aria-label="Tamanho do texto">
+      <button type="button" class="btn-acesso" data-fonte="diminuir" aria-label="Diminuir o tamanho do texto">A<span aria-hidden="true">−</span></button>
+      <button type="button" class="btn-acesso" data-fonte="normal" aria-label="Voltar o texto ao tamanho normal">A</button>
+      <button type="button" class="btn-acesso" data-fonte="aumentar" aria-label="Aumentar o tamanho do texto">A<span aria-hidden="true">+</span></button>
+    </div>
+    <button type="button" class="btn-acesso" data-contraste aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 3.4a8.6 8.6 0 010 17.2z" fill="currentColor"/>
+      </svg>
+      Alto contraste
+    </button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <div class="identidade">
+      <span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span>
+      <span class="identidade__filete" aria-hidden="true"></span>
+      <a class="marca" href="index.html">
+        <span class="marca__texto"><strong>Conexão Cidadã</strong><small>Segurança e Inclusão Digital</small></span>
+      </a>
+    </div>
+    <button type="button" class="botao-menu" data-menu aria-expanded="false" aria-controls="menu-principal">
+      <span class="botao-menu__barras" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="navegacao" id="menu-principal" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html" class="navegacao__link esta-ativo" aria-current="page">Início</a></li><li><a href="projeto.html" class="navegacao__link">O Projeto</a></li><li><a href="sobrenos.html" class="navegacao__link">Sobre Nós</a></li><li><a href="mailto:conexaocidada@ifsp.edu.br" class="botao botao--pequeno">Fale com a gente</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ ABERTURA ============ -->
+<section class="abertura">
+  <div class="container">
+    <div class="abertura__grade">
+      <div class="abertura__texto">
+        <p class="rotulo">Projeto de extensão · IFSP Catanduva</p>
+        <h1 class="titulo-abertura">Desconfie antes<br>de <span class="realce">clicar</span></h1>
+        <p class="texto-guia">
+          O seu banco nunca vai te ligar para pedir sua senha. Órgão nenhum bloqueia seu benefício
+          por mensagem. O <strong>Conexão Cidadã</strong> leva a Monte Alto — SP palestras, oficinas e cartilhas
+          para reconhecer golpes virtuais antes que seja tarde — em linguagem simples e sem pressa.
+        </p>
+        <p><span class="etiqueta-solida">Venha aprender a lidar com isso.</span></p>
+        <div class="acoes">
+          <a class="botao" href="#quiz">Testar meus conhecimentos</a>
+          <a class="botao botao--vazado" href="projeto.html">Conhecer o projeto</a>
+        </div>
+      </div>
+
+      <div class="simulacao revelar">
+        <p class="simulacao__topo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 4l8.5 15h-17L12 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="16.8" r="1" fill="currentColor"/>
+          </svg>
+          Exemplo simulado — esta mensagem é falsa
+        </p>
+        <div class="simulacao__corpo">
+          <p class="simulacao__balao">
+            <span class="simulacao__remetente">Mensagem recebida agora</span>
+            “AVISO: seu benefício está BLOQUEADO por falta de recadastramento. Regularize hoje
+            pelo link para não perder o pagamento deste mês.”
+          </p>
+          <ul class="simulacao__sinais">
+            <li><strong>Ameaça de perder o dinheiro.</strong> O golpe precisa que você aja com medo, antes de perguntar a alguém.</li>
+            <li><strong>Um link para resolver tudo.</strong> Recadastro de benefício não se faz por link de mensagem.</li>
+            <li><strong>Prazo curto.</strong> Benefício não some da noite para o dia. Procure o CRAS ou o aplicativo oficial e confirme.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMERO DE IMPACTO ============ -->
+<section class="secao secao--compacta secao--clara">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Por que isso importa</p>
+        <h2 class="titulo-secao">Ainda dá <span class="realce">para agir</span></h2>
+      </div>
+      <div class="duas-colunas__lado">
+        <p class="texto-guia">
+          No Brasil, estima-se que quase <strong>8 mil pessoas</strong> sejam vítimas de tentativas de
+          fraude virtual a cada hora — uma média de cerca de <strong>4 golpes concretizados por minuto</strong>.
+          Para quem depende de um benefício para o mês inteiro, uma única fraude compromete comida,
+          remédio e aluguel.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="secao">
+  <div class="container">
+    <p class="rotulo">Teste rápido</p>
+    <h2 class="titulo-secao titulo-secao--largo">É golpe ou <span class="realce">não é</span>?</h2>
+    <p class="texto-guia">
+      Cinco situações reais do dia a dia. Escolha e veja o sinal que denuncia cada uma —
+      é o mesmo exercício que fazemos nas oficinas presenciais.
+    </p>
+
+    <div class="quiz" id="quiz">
+      <div class="quiz__cabecalho">
+        <h3 class="quiz__titulo" id="quiz-titulo">Situação recebida</h3>
+        <span class="quiz__contador" data-contador>Situação 1 de 5</span>
+      </div>
+      <div class="quiz__barra"><div class="quiz__progresso" data-progresso></div></div>
+
+      <div class="quiz__mensagem">
+        <span class="quiz__canal" data-canal></span>
+        <span data-texto tabindex="-1"></span>
+      </div>
+
+      <div class="quiz__opcoes" data-opcoes>
+        <button type="button" class="botao" data-valor="golpe">É golpe</button>
+        <button type="button" class="botao botao--vazado" data-valor="seguro">É seguro</button>
+      </div>
+
+      <div class="quiz__resposta" data-resposta hidden>
+        <span class="quiz__veredito" data-veredito></span>
+        <p class="quiz__explicacao" data-explicacao></p>
+        <button type="button" class="botao botao--pequeno" data-seguinte>Próxima situação</button>
+      </div>
+
+      <p class="quiz__placar" data-placar></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DICAS ============ -->
+<section class="secao secao--clara">
+  <div class="container">
+    <p class="rotulo">Quatro dicas para levar</p>
+    <h2 class="titulo-secao titulo-secao--largo">O básico que <span class="realce">protege</span> você</h2>
+    <div class="grade grade--2">
+      <article class="cartao dica revelar">
+            <span class="dica__numero" aria-hidden="true">01</span>
+            <h3 class="dica__titulo">Desconfie antes de clicar</h3>
+            <p>Recebeu mensagem de um parente pedindo transferência urgente? Ligue para a pessoa por outro canal antes de pagar qualquer coisa.</p>
+          </article>
+<article class="cartao dica revelar">
+            <span class="dica__numero" aria-hidden="true">02</span>
+            <h3 class="dica__titulo">Proteja senhas e códigos</h3>
+            <p>Ative a verificação em duas etapas nas redes sociais, no e-mail e nos aplicativos de banco. Assim, nem quem descobrir sua senha consegue entrar.</p>
+          </article>
+<article class="cartao dica revelar">
+            <span class="dica__numero" aria-hidden="true">03</span>
+            <h3 class="dica__titulo">Cuidado com links suspeitos</h3>
+            <p>Evite links de desconhecidos ou com ofertas boas demais. Bancos e empresas sérias não pedem senha nem código de SMS.</p>
+          </article>
+<article class="cartao dica revelar">
+            <span class="dica__numero" aria-hidden="true">04</span>
+            <h3 class="dica__titulo">Mantenha tudo atualizado</h3>
+            <p>Não adie as atualizações do celular e dos aplicativos. Elas corrigem falhas de segurança já conhecidas e fecham a porta para invasões.</p>
+          </article>
+    </div>
+
+    <div class="aviso">
+      <span class="aviso__icone" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l7.5 3.4v5c0 4.4-3.1 8.2-7.5 9.3-4.4-1.1-7.5-4.9-7.5-9.3v-5L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M12 8.5v4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="12" cy="15.8" r="1.05" fill="currentColor"/>
+        </svg>
+      </span>
+      <p>
+        <strong>Senha, código de verificação, número de cartão e número do benefício não se dizem a ninguém.</strong>
+        Nem por telefone, nem por mensagem, nem para funcionário de banco, nem para nós.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DUAS FRENTES ============ -->
+<section class="secao">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Como chegamos até você</p>
+        <h2 class="titulo-secao">Duas frentes no <span class="realce">mesmo dia</span></h2>
+        <p class="texto-guia">
+          Uma palestra articulada com a Prefeitura, voltada ao público atendido pela assistência
+          municipal, e um evento aberto a qualquer morador da cidade. Ninguém fica de fora.
+        </p>
+      </div>
+      <div class="duas-colunas__lado">
+        <ul class="lista-marcada">
+          <li><strong>Palestra articulada com a Prefeitura</strong> — para pessoas encaminhadas ou mobilizadas pela Secretaria de Assistência Social, pelo CRAS e pelo CREAS.</li>
+          <li><strong>Evento aberto à comunidade</strong> — com oficina prática, exemplos de golpes e espaço para dúvidas, incluindo pessoas idosas, familiares e cuidadores.</li>
+          <li><strong>Data prevista: 24 de outubro de 2026</strong> — local a confirmar com os parceiros.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="numeros">
+      <div class="numero revelar"><span class="numero__valor">60</span><p class="numero__rotulo">Participantes que queremos alcançar somando as duas frentes.</p></div>
+      <div class="numero revelar"><span class="numero__valor">24/10</span><p class="numero__rotulo">Data prevista para a palestra e o evento aberto, em 2026.</p></div>
+      <div class="numero revelar"><span class="numero__valor">Grátis</span><p class="numero__rotulo">Todas as atividades e materiais, sem custo para os participantes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERGUNTAS ============ -->
+<section class="secao secao--clara">
+  <div class="container">
+    <p class="rotulo">Perguntas frequentes</p>
+    <h2 class="titulo-secao titulo-secao--largo">Dúvidas que <span class="realce">sempre aparecem</span></h2>
+    <div style="margin-top:2.5rem">
+      <details class="pergunta">
+            <summary>Caí em um golpe. Ainda dá para fazer alguma coisa?</summary>
+            <div class="pergunta__corpo"><p>Dá, e quanto antes melhor. Ligue para o seu banco pelo número do cartão ou do extrato e peça o bloqueio e a contestação. Registre um boletim de ocorrência — pode ser feito pela delegacia eletrônica. Troque as senhas das contas envolvidas a partir de outro aparelho. E avise a família e os amigos, porque golpistas costumam usar sua conta para abordar seus contatos.</p><p>Cair em um golpe não é burrice. Essas fraudes são construídas para funcionar justamente com pessoas atentas, usando pressa e medo.</p></div>
+          </details>
+<details class="pergunta">
+            <summary>Como faço para o projeto ir até o meu grupo?</summary>
+            <div class="pergunta__corpo"><p>Escreva para <a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a> contando quantas pessoas são, onde vocês se reúnem e qual o melhor horário. Atendemos grupos da rede socioassistencial, centros de convivência, igrejas, associações e grupos de bairro. Tudo é gratuito.</p></div>
+          </details>
+<details class="pergunta">
+            <summary>Preciso saber mexer no celular para participar?</summary>
+            <div class="pergunta__corpo"><p>Não. As atividades começam do começo e seguem no ritmo de quem está aprendendo. Quem quiser pode levar o próprio celular para treinar durante a oficina, mas não é obrigatório — quem preferir só assistir e levar a cartilha impressa também aproveita.</p></div>
+          </details>
+<details class="pergunta">
+            <summary>Vocês pedem algum dado pessoal?</summary>
+            <div class="pergunta__corpo"><p>Não pedimos senha, código de verificação, número de cartão, dado bancário, número de benefício nem documento — em nenhuma etapa, inclusive nos formulários de avaliação. Todos os exemplos usados nas oficinas são fictícios. Se alguém pedir esses dados em nosso nome, é golpe.</p></div>
+          </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUEM REALIZA ============ -->
+<section class="secao">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Quem realiza</p>
+        <h2 class="titulo-secao">Sete estudantes de <span class="realce">ADS</span></h2>
+        <p class="texto-guia">
+          Somos alunos do curso de Análise e Desenvolvimento de Sistemas do IFSP Campus Catanduva,
+          sob orientação do Prof. Dr. Kleber Sartorio. Este é o nosso projeto de extensão: usar o que aprendemos
+          em segurança da informação e experiência do usuário em benefício da comunidade.
+        </p>
+        <div class="acoes"><a class="botao botao--vazado" href="sobrenos.html">Conhecer a equipe</a></div>
+      </div>
+      <div class="duas-colunas__lado">
+        <ul class="lista-marcada">
+          <li>Ações em Monte Alto (SP) e região, previstas para outubro de 2026.</li>
+          <li>Conteúdo pesquisado pela equipe e revisado pelo professor orientador.</li>
+          <li>Realização em articulação com a Prefeitura e a rede socioassistencial.</li>
+          <li>Nenhum dado pessoal sensível é solicitado ou registrado em qualquer etapa.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAMADA ============ -->
+<section class="secao secao--chamada">
+  <div class="container chamada">
+    <h2 class="titulo-secao chamada__titulo">Escolha sua <span class="realce">segurança</span></h2>
+    <p class="chamada__texto">
+      Tem um grupo que gostaria de participar? Levamos o material impresso e adaptamos a conversa
+      ao tamanho da turma.
+    </p>
+    <a class="botao" href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Falar com a equipe</a>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__topo">
+    <div>
+      <p class="rodape__logo"><span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span></p>
+      <p class="rodape__texto">
+        Palestra, oficina e cartilha gratuitas sobre prevenção de golpes virtuais, para moradores
+        de Monte Alto — SP — com atenção a quem recebe benefícios sociais e a pessoas idosas.
+      </p>
+      <p class="rodape__aviso">
+        Nunca pedimos senha, código de verificação, número de cartão, dado bancário ou número de
+        benefício — nem nas atividades, nem por telefone, nem por mensagem.
+      </p>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Navegue</h2>
+      <ul class="rodape__lista">
+        <li><a href="index.html">Início</a></li><li><a href="projeto.html">O Projeto</a></li><li><a href="sobrenos.html">Sobre Nós</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Participe</h2>
+      <ul class="rodape__lista">
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Inscrever meu grupo</a></li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Quero%20ser%20parceiro">Ser instituição parceira</a></li>
+        <li><a href="sobrenos.html#equipe">Conhecer a equipe</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Onde encontrar</h2>
+      <ul class="rodape__lista">
+        <li>Ações em Monte Alto — SP</li>
+        <li>IFSP Campus Catanduva — Curso de ADS</li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container rodape__base">
+    <p>© 2026 Conexão Cidadã, Segurança e Inclusão Digital. Projeto de extensão universitária, gratuito e sem fins lucrativos.</p>
+    <p>Orientação: Prof. Dr. Kleber Sartorio.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

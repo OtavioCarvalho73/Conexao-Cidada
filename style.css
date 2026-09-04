@@ -1,0 +1,870 @@
+/* =========================================================
+   CONEXÃO CIDADÃ — SEGURANÇA E INCLUSÃO DIGITAL
+   Estética a partir do material de divulgação do projeto:
+   azul-marinho profundo, azul elétrico e títulos condensados.
+
+   01. Variáveis      06. Cabeçalho e menu   11. Rodapé
+   02. Papéis de cor  07. Abertura           12. Animações
+   03. Base           08. Blocos de conteúdo 13. Responsivo
+   04. Tipografia     09. Quiz               14. Alto contraste
+   05. Botões         10. Perguntas
+   ========================================================= */
+
+/* ---------------- 01. VARIÁVEIS ---------------- */
+:root {
+    --marinho-900: #010B39;
+    --marinho-800: #061448;
+    --marinho-700: #0B1F63;
+    --marinho-600: #142C7E;
+    --azul:        #468CFC;
+    --azul-claro:  #8FBAFF;
+    --creme:       #FBF7EA;
+    --creme-2:     #F2ECD9;
+    --vermelho:    #FF6B6B;
+    --verde-ok:    #4ADE9B;
+
+    --fonte-titulo: "Oswald", "Arial Narrow", sans-serif;
+    --fonte-texto:  "Poppins", "Segoe UI", Arial, sans-serif;
+
+    --largura: 1180px;
+    --raio:    18px;
+    --raio-p:  10px;
+}
+
+/* ---------------- 02. PAPÉIS DE COR ----------------
+   Todo o site usa só as variáveis desta seção. O modo de
+   alto contraste (seção 14) reescreve apenas elas.       */
+:root {
+    --sup-pagina:  var(--marinho-900);
+    --sup-cartao:  var(--marinho-800);
+    --sup-alta:    var(--marinho-700);
+    --sup-clara:   var(--creme);
+
+    --txt-titulo:  #FFFFFF;
+    --txt-corpo:   #DCE5F8;
+    --txt-suave:   #A5B4DA;
+    --destaque:    var(--azul);
+
+    --borda:       rgba(143, 186, 255, .22);
+    --borda-forte: rgba(143, 186, 255, .45);
+
+    --acao-fundo:  var(--azul);
+    --acao-texto:  #04123C;
+    --acao-hover:  #7FB4FF;
+
+    --alerta:       var(--vermelho);
+    --alerta-fundo: rgba(255, 107, 107, .12);
+    --ok:           var(--verde-ok);
+    --ok-fundo:     rgba(74, 222, 155, .12);
+
+    --foco: #8FBAFF;
+}
+
+/* Seções de fundo claro invertem os papéis */
+.secao--clara {
+    --sup-pagina: var(--creme);
+    --sup-cartao: #FFFFFF;
+    --sup-alta:   var(--creme-2);
+    --txt-titulo: #041037;
+    --txt-corpo:  #16224F;
+    --txt-suave:  #4A5680;
+    --destaque:   #1D5FD8;
+    --borda:      rgba(4, 16, 55, .14);
+    --borda-forte: rgba(4, 16, 55, .3);
+    --acao-texto: #FFFFFF;
+    --acao-fundo: #1D5FD8;
+    --acao-hover: #04123C;
+    background-color: var(--creme);
+    color: var(--txt-corpo);
+}
+
+/* ---------------- 03. BASE ---------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+    font-size: 112.5%;          /* 18px: o público lê melhor assim */
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    margin: 0;
+    background-color: var(--marinho-900);
+    color: var(--txt-corpo);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--destaque); }
+
+:focus-visible {
+    outline: 3px solid var(--foco);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.pular-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 999;
+    background-color: var(--azul);
+    color: #04123C;
+    font-weight: 600;
+    padding: .9rem 1.4rem;
+    border-radius: 0 0 var(--raio-p) 0;
+}
+.pular-link:focus { left: 0; }
+
+.so-leitor-tela {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .001ms !important;
+        transition-duration: .001ms !important;
+    }
+}
+
+/* ---------------- 04. TIPOGRAFIA ---------------- */
+.container {
+    width: 100%;
+    max-width: var(--largura);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.secao { padding: 5.5rem 0; position: relative; }
+.secao--compacta { padding: 3.5rem 0; }
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--txt-titulo);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -.005em;
+    margin: 0 0 1rem;
+}
+
+.titulo-abertura {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.titulo-secao {
+    font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    max-width: 20ch;
+}
+.duas-colunas .titulo-secao, .titulo-secao--largo { max-width: none; }
+
+/* Palavra destacada dentro do título, como no material impresso */
+.realce { color: var(--destaque); }
+
+/* Rótulo condensado com filete, igual ao "DICA 1" das artes */
+.rotulo {
+    font-family: var(--fonte-titulo);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--destaque);
+    margin: 0 0 .9rem;
+}
+.rotulo::after {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 2px;
+    margin-top: .5rem;
+    background-image: linear-gradient(to right, var(--destaque), transparent);
+}
+
+/* Etiqueta sólida sobre fundo azul, como "Venha aprender a lidar com isso." */
+.etiqueta-solida {
+    display: inline-block;
+    background-color: var(--marinho-600);
+    color: #FFFFFF;
+    font-size: .88rem;
+    font-weight: 500;
+    padding: .3rem 1rem;
+    border-radius: 4px;
+}
+.secao--clara .etiqueta-solida { background-color: #1D5FD8; }
+
+p { margin: 0 0 1.2rem; }
+.texto-guia { font-size: 1.1rem; color: var(--txt-suave); max-width: 60ch; }
+.texto-guia strong { color: var(--txt-corpo); }
+.lista-limpa { list-style: none; margin: 0; padding: 0; }
+
+.grade { display: grid; gap: 1.6rem; margin-top: 3rem; }
+.grade--2 { grid-template-columns: repeat(2, 1fr); }
+.grade--3 { grid-template-columns: repeat(3, 1fr); }
+.grade--4 { grid-template-columns: repeat(4, 1fr); }
+
+.duas-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+    align-items: start;
+}
+.duas-colunas__lado > :first-child { margin-top: 0; }
+.acoes { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2.2rem; }
+
+/* ---------------- 05. BOTÕES ---------------- */
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    min-height: 52px;
+    padding: .75rem 1.9rem;
+    background-color: var(--acao-fundo);
+    color: var(--acao-texto);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--acao-fundo);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.botao:hover { background-color: var(--acao-hover); border-color: var(--acao-hover); transform: translateY(-2px); }
+.botao--vazado { background-color: transparent; color: var(--destaque); border-color: var(--borda-forte); }
+.botao--vazado:hover { background-color: transparent; border-color: var(--destaque); color: var(--acao-hover); }
+.botao--pequeno { min-height: 44px; padding: .4rem 1.2rem; font-size: .95rem; }
+
+/* ---------------- 06. CABEÇALHO E MENU ---------------- */
+.barra-acesso {
+    background-color: #000829;
+    border-bottom: 1px solid var(--borda);
+    font-size: .85rem;
+    color: var(--txt-suave);
+}
+.barra-acesso__interna {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    flex-wrap: wrap;
+    padding-top: .45rem;
+    padding-bottom: .45rem;
+}
+.barra-acesso__rotulo { margin-right: auto; font-weight: 500; }
+.controle-fonte { display: flex; gap: .3rem; }
+
+.btn-acesso {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    min-height: 36px;
+    padding: .2rem .8rem;
+    background-color: transparent;
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    color: inherit;
+    font-family: var(--fonte-texto);
+    font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-acesso:hover { background-color: rgba(143,186,255,.14); color: #FFFFFF; }
+.btn-acesso[aria-pressed="true"] { background-color: var(--azul); color: #04123C; border-color: var(--azul); }
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background-color: rgba(1, 11, 57, .92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borda);
+}
+.cabecalho__interno {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+}
+
+.identidade { display: flex; align-items: center; gap: 1rem; }
+.logo-ifsp {
+    display: block;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 5px;
+    flex: none;
+}
+.logo-ifsp img { height: 42px; width: auto; }
+.identidade__filete { width: 1px; height: 40px; background-color: var(--borda); flex: none; }
+
+.marca { display: inline-flex; text-decoration: none; color: #FFFFFF; }
+.marca__texto { display: flex; flex-direction: column; line-height: 1.15; }
+.marca__texto strong {
+    font-family: var(--fonte-titulo);
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+}
+.marca__texto small {
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--azul);
+}
+
+.navegacao__lista { display: flex; align-items: center; gap: .3rem; list-style: none; margin: 0; padding: 0; }
+.navegacao__link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: .3rem 1rem;
+    border-radius: 999px;
+    color: var(--txt-corpo);
+    font-weight: 500;
+    text-decoration: none;
+}
+.navegacao__link:hover { background-color: rgba(143,186,255,.12); color: #FFFFFF; }
+.navegacao__link.esta-ativo { color: #FFFFFF; box-shadow: inset 0 0 0 1.5px var(--azul); }
+
+.botao-menu {
+    display: none;
+    align-items: center;
+    gap: .6rem;
+    min-height: 46px;
+    padding: .3rem 1.1rem;
+    background-color: rgba(143,186,255,.12);
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    color: #FFFFFF;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.botao-menu__barras,
+.botao-menu__barras::before,
+.botao-menu__barras::after {
+    display: block; width: 20px; height: 2px;
+    background-color: currentColor; border-radius: 2px;
+}
+.botao-menu__barras { position: relative; }
+.botao-menu__barras::before, .botao-menu__barras::after { content: ""; position: absolute; left: 0; }
+.botao-menu__barras::before { top: -6px; }
+.botao-menu__barras::after { top: 6px; }
+
+/* ---------------- 07. ABERTURA ---------------- */
+.abertura { padding: 4.5rem 0 5rem; position: relative; overflow: hidden; }
+
+/* Grade de pontos discreta, como nas artes de divulgação */
+.abertura::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(143,186,255,.16) 1.4px, transparent 1.4px);
+    background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(115deg, #000 0%, transparent 55%);
+            mask-image: linear-gradient(115deg, #000 0%, transparent 55%);
+    pointer-events: none;
+}
+.abertura > .container { position: relative; }
+.abertura__grade { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3.5rem; align-items: center; }
+.abertura__texto .texto-guia { font-size: 1.15rem; }
+
+/* ---------------- 08. BLOCOS DE CONTEÚDO ---------------- */
+.cartao {
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 2rem;
+    transition: border-color .2s ease, transform .2s ease;
+}
+.cartao:hover { border-color: var(--borda-forte); transform: translateY(-3px); }
+.cartao__icone {
+    display: grid; place-items: center;
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    background-color: rgba(70,140,252,.16);
+    color: var(--destaque);
+    margin-bottom: 1.2rem;
+}
+.cartao__titulo { font-size: 1.4rem; text-transform: uppercase; }
+.cartao p { margin-bottom: 0; color: var(--txt-suave); }
+.cartao--alerta { border-color: rgba(255,107,107,.4); background-color: var(--alerta-fundo); }
+.cartao--alerta .cartao__icone { background-color: rgba(255,107,107,.18); color: var(--alerta); }
+.cartao--alerta .cartao__titulo { color: var(--alerta); }
+
+/* Numeração grande, como as "DICAS" do carrossel */
+.dica { position: relative; padding-top: .5rem; }
+.dica__numero {
+    font-family: var(--fonte-titulo);
+    font-size: 3.4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--destaque);
+    opacity: .35;
+    display: block;
+    margin-bottom: .4rem;
+}
+.dica__titulo { font-size: 1.5rem; text-transform: uppercase; }
+.dica p { color: var(--txt-suave); margin-bottom: 0; }
+
+/* Mensagem falsa comentada */
+.simulacao {
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    overflow: hidden;
+}
+.simulacao__topo {
+    display: flex; align-items: center; gap: .5rem;
+    margin: 0;
+    padding: .8rem 1.3rem;
+    background-color: var(--alerta-fundo);
+    border-bottom: 1px solid rgba(255,107,107,.3);
+    color: var(--alerta);
+    font-family: var(--fonte-titulo);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+.simulacao__corpo { padding: 1.6rem; }
+.simulacao__balao {
+    background-color: var(--sup-alta);
+    border: 1px solid var(--borda);
+    border-radius: 16px 16px 16px 4px;
+    padding: 1.1rem 1.3rem;
+    margin: 0 0 1.5rem;
+    color: var(--txt-corpo);
+}
+.simulacao__remetente {
+    display: block;
+    font-size: .82rem; font-weight: 600;
+    color: var(--txt-suave);
+    margin-bottom: .4rem;
+}
+.simulacao__sinais { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; }
+.simulacao__sinais li { position: relative; padding-left: 2.3rem; color: var(--txt-suave); font-size: .98rem; }
+.simulacao__sinais li::before {
+    content: "!";
+    position: absolute; left: 0; top: 0;
+    display: grid; place-items: center;
+    width: 26px; height: 26px;
+    border-radius: 8px;
+    background-color: var(--alerta-fundo);
+    border: 1px solid rgba(255,107,107,.45);
+    color: var(--alerta);
+    font-weight: 700; font-size: .85rem;
+}
+.simulacao__sinais strong { color: var(--txt-corpo); }
+
+/* Aviso destacado */
+.aviso {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.3rem;
+    align-items: center;
+    background-color: var(--alerta-fundo);
+    border: 1px solid rgba(255,107,107,.4);
+    border-radius: var(--raio);
+    padding: 1.8rem 2rem;
+    margin-top: 3rem;
+}
+.aviso__icone { color: var(--alerta); }
+.aviso p { margin: 0; font-size: 1.05rem; color: var(--txt-corpo); }
+.aviso strong { color: var(--alerta); }
+
+/* Números */
+.numeros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; margin-top: 3rem; }
+.numero { border-top: 2px solid var(--destaque); padding-top: 1.3rem; }
+.numero__valor {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--txt-titulo);
+    margin-bottom: .5rem;
+}
+.numero__rotulo { margin: 0; color: var(--txt-suave); font-size: .96rem; }
+
+/* Lista com marcador quadrado */
+.lista-marcada { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: .9rem; }
+.lista-marcada li { position: relative; padding-left: 1.8rem; color: var(--txt-suave); }
+.lista-marcada li::before {
+    content: ""; position: absolute; left: 0; top: .62em;
+    width: 10px; height: 10px; border-radius: 2px;
+    background-color: var(--destaque);
+}
+.lista-marcada strong { color: var(--txt-corpo); }
+
+/* Objetivos numerados */
+.objetivos {
+    list-style: none; counter-reset: obj;
+    margin: 3rem 0 0; padding: 0;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem 3rem;
+}
+.objetivos li { counter-increment: obj; position: relative; padding-left: 3.4rem; color: var(--txt-suave); }
+.objetivos li::before {
+    content: counter(obj, decimal-leading-zero);
+    position: absolute; left: 0; top: -.15em;
+    font-family: var(--fonte-titulo); font-size: 1.5rem; font-weight: 700;
+    color: var(--destaque);
+}
+
+/* Linha do tempo */
+.fases { list-style: none; margin: 3rem 0 0; padding: 0; }
+.fase { position: relative; padding: 0 0 2.4rem 2.3rem; border-left: 1px solid var(--borda); }
+.fase:last-child { padding-bottom: 0; border-left-color: transparent; }
+.fase::before {
+    content: ""; position: absolute; left: -7px; top: .35em;
+    width: 13px; height: 13px; border-radius: 3px;
+    background-color: var(--destaque);
+    box-shadow: 0 0 0 5px var(--sup-pagina);
+}
+.fase__periodo {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: .85rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--destaque);
+    margin-bottom: .3rem;
+}
+.fase__titulo { font-size: 1.35rem; text-transform: uppercase; }
+.fase p { margin: 0; color: var(--txt-suave); }
+
+/* Pessoas */
+.pessoa {
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1.7rem;
+}
+.pessoa__topo { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.1rem; }
+.pessoa__foto {
+    position: relative;
+    display: grid; place-items: center;
+    width: 72px; height: 72px;
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: var(--marinho-600);
+    color: #FFFFFF;
+    font-family: var(--fonte-titulo);
+    font-size: 1.7rem; font-weight: 700;
+    flex: none;
+}
+.pessoa__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.pessoa__nome { font-size: 1.2rem; margin-bottom: .15rem; text-transform: none; }
+.pessoa__funcao {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: .8rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--destaque);
+}
+.pessoa__bio { margin: 0; color: var(--txt-suave); font-size: .96rem; }
+.pessoa--orientador { border-color: var(--borda-forte); }
+
+/* Parceiros e ODS */
+.parceiro {
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-left: 3px solid var(--destaque);
+    border-radius: var(--raio-p);
+    padding: 1.3rem 1.5rem;
+}
+.parceiro__nome { font-size: 1.1rem; margin-bottom: .3rem; text-transform: none; }
+.parceiro__papel { margin: 0 0 .8rem; color: var(--txt-suave); font-size: .95rem; }
+.lista-parceiros { display: grid; gap: 1rem; }
+.etiqueta-pendente {
+    display: inline-block;
+    padding: .15rem .8rem;
+    border-radius: 999px;
+    border: 1px solid var(--borda-forte);
+    color: var(--txt-suave);
+    font-size: .8rem; font-weight: 500;
+}
+.ods { border-top: 2px solid var(--destaque); padding-top: 1.3rem; }
+.ods__numero {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: .85rem; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--destaque);
+    margin-bottom: .3rem;
+}
+.ods__nome { font-size: 1.35rem; text-transform: uppercase; }
+.ods p { margin: 0; color: var(--txt-suave); }
+
+/* Faixa de foto larga */
+.faixa-foto {
+    margin: 3.5rem 0 0;
+    border-radius: var(--raio);
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    background-color: var(--sup-cartao);
+}
+.faixa-foto img { width: 100%; height: auto; }
+.faixa-foto figcaption {
+    padding: 1rem 1.4rem;
+    background-color: var(--sup-alta);
+    color: var(--txt-suave);
+    font-family: var(--fonte-titulo);
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* Chamada final */
+.secao--chamada { background-color: var(--marinho-700); }
+.chamada { text-align: center; }
+.chamada__titulo { max-width: 22ch; margin-left: auto; margin-right: auto; }
+.chamada__texto { color: var(--txt-suave); max-width: 54ch; margin: 0 auto 2.4rem; }
+
+/* ---------------- 09. QUIZ "É GOLPE?" ---------------- */
+.quiz {
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 2.2rem;
+    margin-top: 3rem;
+}
+.quiz__cabecalho {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1.4rem;
+}
+.quiz__contador {
+    font-family: var(--fonte-titulo);
+    font-size: .9rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--destaque);
+}
+.quiz__barra { height: 4px; border-radius: 999px; background-color: var(--sup-alta); overflow: hidden; margin-bottom: 1.8rem; }
+.quiz__progresso { height: 100%; width: 0; background-color: var(--destaque); transition: width .35s ease; }
+
+.quiz__mensagem {
+    background-color: var(--sup-alta);
+    border: 1px solid var(--borda);
+    border-radius: 16px 16px 16px 4px;
+    padding: 1.3rem 1.5rem;
+    margin-bottom: 1.6rem;
+    font-size: 1.05rem;
+    color: var(--txt-corpo);
+}
+.quiz__canal {
+    display: block;
+    font-size: .8rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--txt-suave);
+    margin-bottom: .5rem;
+}
+.quiz__opcoes { display: flex; gap: .9rem; flex-wrap: wrap; }
+.quiz__opcoes .botao { flex: 1 1 200px; }
+
+.quiz__resposta {
+    margin-top: 1.6rem;
+    padding: 1.3rem 1.5rem;
+    border-radius: var(--raio-p);
+    border: 1px solid var(--borda);
+}
+.quiz__resposta[hidden] { display: none; }
+.quiz__resposta--certo  { background-color: var(--ok-fundo); border-color: rgba(74,222,155,.45); }
+.quiz__resposta--errado { background-color: var(--alerta-fundo); border-color: rgba(255,107,107,.45); }
+.quiz__veredito {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem; font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: .4rem;
+}
+.quiz__resposta--certo  .quiz__veredito { color: var(--ok); }
+.quiz__resposta--errado .quiz__veredito { color: var(--alerta); }
+.quiz__explicacao { margin: 0 0 1.2rem; color: var(--txt-corpo); }
+.quiz__placar { margin-top: 1.4rem; color: var(--txt-suave); font-size: .95rem; }
+
+/* ---------------- 10. PERGUNTAS FREQUENTES ---------------- */
+.pergunta {
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-p);
+    background-color: var(--sup-cartao);
+    margin-bottom: .9rem;
+    overflow: hidden;
+}
+.pergunta > summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    min-height: 56px;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--txt-titulo);
+    list-style: none;
+}
+.pergunta > summary::-webkit-details-marker { display: none; }
+.pergunta > summary::after {
+    content: "";
+    flex: none;
+    width: 12px; height: 12px;
+    border-right: 2px solid var(--destaque);
+    border-bottom: 2px solid var(--destaque);
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform .2s ease;
+}
+.pergunta[open] > summary::after { transform: rotate(-135deg) translateY(-3px); }
+.pergunta > summary:hover { background-color: rgba(143,186,255,.08); }
+.pergunta__corpo { padding: 0 1.4rem 1.3rem; color: var(--txt-suave); }
+.pergunta__corpo > :last-child { margin-bottom: 0; }
+
+/* ---------------- 11. RODAPÉ ---------------- */
+.rodape {
+    background-color: #000829;
+    border-top: 1px solid var(--borda);
+    padding-top: 4rem;
+    color: var(--txt-suave);
+}
+.rodape__topo {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+}
+.rodape__logo { margin-bottom: 1.4rem; }
+.rodape__logo .logo-ifsp { display: inline-block; padding: 8px; }
+.rodape__logo .logo-ifsp img { height: 58px; }
+.rodape__texto { font-size: .96rem; max-width: 38ch; }
+.rodape__aviso {
+    margin: 0;
+    padding: 1rem 1.2rem;
+    border-radius: var(--raio-p);
+    background-color: var(--alerta-fundo);
+    border-left: 3px solid var(--alerta);
+    color: var(--txt-corpo);
+    font-size: .92rem;
+    max-width: 40ch;
+}
+.rodape__titulo {
+    color: #FFFFFF;
+    font-family: var(--fonte-titulo);
+    font-size: .85rem; font-weight: 600;
+    letter-spacing: .16em; text-transform: uppercase;
+    margin-bottom: 1.1rem;
+}
+.rodape__lista { list-style: none; margin: 0; padding: 0; }
+.rodape__lista li { margin-bottom: .7rem; font-size: .96rem; }
+.rodape__lista a { color: var(--txt-suave); text-decoration: none; border-bottom: 1px solid transparent; }
+.rodape__lista a:hover { color: #FFFFFF; border-bottom-color: var(--azul); }
+.rodape__base {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: .6rem;
+    padding-top: 1.5rem; padding-bottom: 2rem;
+    border-top: 1px solid var(--borda);
+    font-size: .85rem;
+}
+.rodape__base p { margin: 0; }
+
+/* ---------------- 12. ANIMAÇÕES ---------------- */
+.revelar { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.revelar.esta-visivel { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    .revelar { opacity: 1; transform: none; }
+}
+
+/* ---------------- 13. RESPONSIVO ---------------- */
+@media (max-width: 1000px) {
+    .grade--4 { grid-template-columns: repeat(2, 1fr); }
+    .grade--3 { grid-template-columns: repeat(2, 1fr); }
+    .abertura__grade, .duas-colunas { grid-template-columns: 1fr; gap: 2.5rem; }
+    .objetivos { grid-template-columns: 1fr; }
+    .rodape__topo { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+    .botao-menu { display: inline-flex; }
+    .navegacao { display: none; width: 100%; order: 3; }
+    .navegacao.esta-aberto { display: block; }
+    .navegacao__lista {
+        flex-direction: column; align-items: stretch; gap: .2rem;
+        padding: .8rem 0 .4rem;
+        border-top: 1px solid var(--borda);
+        margin-top: .8rem;
+    }
+    .navegacao__link { min-height: 54px; border-radius: var(--raio-p); }
+    .navegacao__lista .botao { margin-top: .6rem; }
+    .cabecalho__interno { flex-wrap: wrap; }
+    .logo-ifsp img { height: 34px; }
+    .marca__texto strong { font-size: 1.1rem; }
+
+    .secao { padding: 3.5rem 0; }
+    .abertura { padding: 3rem 0 3.5rem; }
+    .grade--2, .grade--3, .grade--4 { grid-template-columns: 1fr; }
+    .numeros { grid-template-columns: 1fr; }
+    .aviso { grid-template-columns: 1fr; }
+    .quiz { padding: 1.5rem; }
+    .barra-acesso__rotulo { width: 100%; margin-right: 0; }
+}
+@media (max-width: 520px) {
+    .rodape__topo { grid-template-columns: 1fr; }
+    .identidade__filete { display: none; }
+}
+
+/* ---------------- 14. ALTO CONTRASTE ----------------
+   Reescreve só os papéis da seção 02, então vale para
+   o site inteiro, inclusive as seções claras.           */
+body.alto-contraste,
+body.alto-contraste .secao--clara {
+    --sup-pagina: #000000;
+    --sup-cartao: #000000;
+    --sup-alta:   #1A1A1A;
+    --sup-clara:  #000000;
+
+    --txt-titulo: #FFFFFF;
+    --txt-corpo:  #FFFFFF;
+    --txt-suave:  #F2F2F2;
+    --destaque:   #FFE14D;
+
+    --borda:       #FFFFFF;
+    --borda-forte: #FFFFFF;
+
+    --acao-fundo: #FFE14D;
+    --acao-texto: #000000;
+    --acao-hover: #FFFFFF;
+
+    --alerta:       #FF9E9E;
+    --alerta-fundo: #000000;
+    --ok:           #7DFFC0;
+    --ok-fundo:     #000000;
+    --foco:         #FFE14D;
+
+    background-color: #000000;
+    color: #FFFFFF;
+}
+body.alto-contraste { background-color: #000000; }
+body.alto-contraste .cabecalho,
+body.alto-contraste .barra-acesso,
+body.alto-contraste .rodape,
+body.alto-contraste .secao--chamada { background-color: #000000; }
+body.alto-contraste .cartao,
+body.alto-contraste .pessoa,
+body.alto-contraste .parceiro,
+body.alto-contraste .quiz,
+body.alto-contraste .pergunta,
+body.alto-contraste .simulacao,
+body.alto-contraste .aviso,
+body.alto-contraste .faixa-foto { border-width: 2px; }
+body.alto-contraste .pessoa__foto { background-color: #FFE14D; color: #000000; border: 2px solid #FFFFFF; }
+body.alto-contraste .dica__numero { opacity: 1; }
+body.alto-contraste .abertura::before { display: none; }
+body.alto-contraste .botao:hover { background-color: #FFFFFF; border-color: #FFFFFF; color: #000000; }

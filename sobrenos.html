@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Conheça os sete estudantes de ADS do IFSP Catanduva e o professor orientador por trás do projeto Conexão Cidadã.">
+<title>Sobre Nós — Conexão Cidadã</title>
+
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#010B39">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+<p id="aviso-acessibilidade" class="so-leitor-tela" role="status" aria-live="polite"></p>
+
+<div class="barra-acesso">
+  <div class="container barra-acesso__interna">
+    <span class="barra-acesso__rotulo">Ajuste a leitura</span>
+    <div class="controle-fonte" role="group" aria-label="Tamanho do texto">
+      <button type="button" class="btn-acesso" data-fonte="diminuir" aria-label="Diminuir o tamanho do texto">A<span aria-hidden="true">−</span></button>
+      <button type="button" class="btn-acesso" data-fonte="normal" aria-label="Voltar o texto ao tamanho normal">A</button>
+      <button type="button" class="btn-acesso" data-fonte="aumentar" aria-label="Aumentar o tamanho do texto">A<span aria-hidden="true">+</span></button>
+    </div>
+    <button type="button" class="btn-acesso" data-contraste aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 3.4a8.6 8.6 0 010 17.2z" fill="currentColor"/>
+      </svg>
+      Alto contraste
+    </button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <div class="identidade">
+      <span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span>
+      <span class="identidade__filete" aria-hidden="true"></span>
+      <a class="marca" href="index.html">
+        <span class="marca__texto"><strong>Conexão Cidadã</strong><small>Segurança e Inclusão Digital</small></span>
+      </a>
+    </div>
+    <button type="button" class="botao-menu" data-menu aria-expanded="false" aria-controls="menu-principal">
+      <span class="botao-menu__barras" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="navegacao" id="menu-principal" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="index.html" class="navegacao__link">Início</a></li><li><a href="projeto.html" class="navegacao__link">O Projeto</a></li><li><a href="sobrenos.html" class="navegacao__link esta-ativo" aria-current="page">Sobre Nós</a></li><li><a href="mailto:conexaocidada@ifsp.edu.br" class="botao botao--pequeno">Fale com a gente</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="abertura">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Sobre nós</p>
+        <h1 class="titulo-abertura">Quem <span class="realce">somos nós</span></h1>
+      </div>
+      <div class="duas-colunas__lado">
+        <p class="texto-guia">
+          Somos um grupo de estudantes do curso superior de Análise e Desenvolvimento de Sistemas do
+          Instituto Federal de Educação, Ciência e Tecnologia de São Paulo — Campus Catanduva.
+          Atuamos sob a orientação do <strong>Prof. Dr. Kleber Sartorio</strong>, na disciplina de Introdução à
+          Extensão, unindo nossa formação tecnológica ao compromisso com a responsabilidade social
+          e o fortalecimento da cidadania.
+        </p>
+        <div class="acoes">
+          <a class="botao" href="projeto.html">Ver o que fazemos</a>
+          <a class="botao botao--vazado" href="#equipe">Conhecer a equipe</a>
+        </div>
+      </div>
+    </div>
+
+    <figure class="faixa-foto revelar">
+      <img src="img/imagem-grupo.jpeg" alt="Os integrantes do projeto reunidos" onerror="this.remove()">
+      <figcaption>IFSP Catanduva · Extensão · 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="secao secao--clara">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">De onde vem</p>
+        <h2 class="titulo-secao">Uma necessidade <span class="realce">concreta</span></h2>
+      </div>
+      <div class="duas-colunas__lado">
+        <p>O <strong>Conexão Cidadã, Segurança e Inclusão Digital</strong> nasce da observação de uma
+        necessidade concreta em Monte Alto (SP): pessoas de baixa renda e beneficiárias de programas
+        sociais usam celulares, aplicativos de mensagens e serviços digitais sem orientação suficiente
+        sobre proteção de dados e reconhecimento de fraudes.</p>
+        <p>O projeto começou olhando para as pessoas idosas, e elas continuam no centro das ações. Ao
+        conversar com a rede socioassistencial, porém, percebemos que a mesma vulnerabilidade atinge um
+        grupo maior — e que golpes com benefícios sociais pesam ainda mais em quem depende deles para o
+        mês inteiro. Ampliamos o escopo por isso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Como enfrentamos</p>
+        <h2 class="titulo-secao">Conhecimento de ADS num problema <span class="realce">social</span></h2>
+        <p class="texto-guia">Aplicamos o que aprendemos no curso — segurança da informação, experiência
+        do usuário, organização de dados e prototipação de recursos digitais — na criação de iniciativas
+        pedagógicas e acessíveis, em duas frentes de atendimento.</p>
+      </div>
+      <div class="duas-colunas__lado">
+        <ul class="lista-marcada">
+          <li>Palestra articulada com a Prefeitura, para o público da assistência municipal.</li>
+          <li>Evento aberto à comunidade, com oficina e espaço para dúvidas.</li>
+          <li>Simulações de mensagens, links e pedidos suspeitos, sempre com exemplos fictícios.</li>
+          <li>Cartilhas em linguagem acessível, impressas e digitais.</li>
+          <li>Panfleto com QR Code, com alternativa impressa para quem não tem internet.</li>
+          <li>Integração de filhos, familiares e cuidadores em uma rede comunitária de apoio.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao--clara">
+  <div class="container">
+    <p class="rotulo">No que acreditamos</p>
+    <h2 class="titulo-secao titulo-secao--largo">Três compromissos em cada <span class="realce">encontro</span></h2>
+    <div class="grade grade--3"><article class="cartao revelar"><h3 class="cartao__titulo">Linguagem simples, sempre</h3><p>Nada de termo técnico sem tradução. Usamos exemplos do dia a dia, letra ampliada, imagens e repetição dos pontos importantes — e nunca tratamos quem caiu num golpe como culpado.</p></article>
+<article class="cartao revelar"><h3 class="cartao__titulo">Rigor técnico</h3><p>O conteúdo é pesquisado, revisado pela equipe e pelo professor orientador antes de ir a público. Explicação simples não significa explicação frouxa.</p></article>
+<article class="cartao revelar cartao--alerta"><h3 class="cartao__titulo">Nunca pedimos seus dados</h3><p>Todos os exemplos são simulados. Em nenhuma atividade pedimos senha, código de verificação, número de cartão, dado bancário, número de benefício ou documento. Se alguém pedir isso em nosso nome, é golpe.</p></article></div>
+  </div>
+</section>
+
+<section class="secao" id="equipe">
+  <div class="container">
+    <p class="rotulo">A equipe</p>
+    <h2 class="titulo-secao titulo-secao--largo">Sete estudantes e um <span class="realce">orientador</span></h2>
+    <p class="texto-guia">Cada integrante assumiu uma frente do projeto, da pesquisa dos golpes à
+    conversa com as instituições da cidade.</p>
+    <ul class="grade grade--2 lista-limpa"><li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">K<img src="img/kaique-fernando.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Kaique Fernando</h3>
+              <p class="pessoa__funcao">Líder</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Atuo no ramo de análise de dados voltados à manutenção industrial. Construí minha base analítica e técnica em uma formação em Administração de Empresas e três anos no sistema SENAI, com gestão de estoque, usinagem de peças e eletricidade industrial. Assumo a liderança deste projeto movido pelo desafio de democratizar o acesso à tecnologia.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">R<img src="img/rhayssa-ramos.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Rhayssa Ramos</h3>
+              <p class="pessoa__funcao">Sub-líder</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Sou formada em Desenvolvimento de Sistemas pela ETEC Elias Nechar. Atualmente atuo como auxiliar administrativa na Secretaria de Assistência Social de Tabapuã, usando organização e conhecimento técnico para otimizar rotinas administrativas e apoiar o atendimento à comunidade.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">M<img src="img/miguel-arcanjo.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Miguel Arcanjo Montagner</h3>
+              <p class="pessoa__funcao">Coordenador geral</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Desde criança eu gostava de entender como os jogos e os sites funcionavam, e quis aprender a fazer esses sistemas. Também sou fascinado por design gráfico e trabalho com edição de vídeo e social media. Neste projeto cuido de cada detalhe e da ordem para cumprirmos as metas, e toco a área criativa, desenvolvendo o site e os panfletos de divulgação junto com o Otávio.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">M<img src="img/miguel-ramalho.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Miguel Ramalho</h3>
+              <p class="pessoa__funcao">Documentarista</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Meu nome é Miguel Mapelli Ramalho. Nasci em Novo Horizonte, São Paulo, e tenho 21 anos. Em 2023 concluí o ensino técnico em Análise e Desenvolvimento de Sistemas na ETEC de Novo Horizonte, e hoje continuo a formação no IFSP Campus Catanduva. No projeto atuo como documentarista, responsável por organizar listas de presença, questionários, atas, materiais produzidos, registros fotográficos autorizados e as demais evidências das atividades.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">P<img src="img/pedro-mendes.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Pedro Mendes</h3>
+              <p class="pessoa__funcao">Parcerias e divulgação</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Sou estudante do 4º semestre de ADS no IFSP Campus Catanduva. Escolhi a área pelo interesse em tecnologia e em como ela pode facilitar a vida das pessoas. O tema dos golpes digitais me chamou atenção por ser um problema cada vez mais comum, e eu já tinha experiência ajudando uma pessoa com mais de 60 anos com conteúdos digitais. Espero aprimorar minha comunicação com diferentes públicos.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">O<img src="img/otavio-carvalho.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Otávio Carvalho</h3>
+              <p class="pessoa__funcao">Pesquisador</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Meu nome é Otávio dos Santos Carvalho, tenho 20 anos e sou da turma de 2025 do curso de ADS no IFSP Campus Catanduva, no quarto período. Escolhi o curso porque tenho afinidade com tecnologia desde pequeno. O que mais me interessou no tema é o quanto ele impacta a vida das pessoas: nenhuma educação é desnecessária, e este projeto é uma ótima oportunidade de aprender também.</p>
+        </li>
+<li class="pessoa revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">K<img src="img/kauan-lourenco.jpg" alt="" onerror="this.remove()"></span>
+            <div>
+              <h3 class="pessoa__nome">Kauan Lourenço</h3>
+              <p class="pessoa__funcao">Soluções digitais</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Sou estudante do 4º semestre de ADS no IFSP Catanduva. Escolhi a área pelo desejo de criar ferramentas tecnológicas que resolvam problemas do dia a dia. No projeto sou responsável por apresentações, recursos interativos, QR Codes e materiais com linguagem simples e acessível. Acredito que a tecnologia deve incluir e proteger todas as gerações, servindo como uma ponte e não como um obstáculo.</p>
+        </li>
+<li class="pessoa pessoa--orientador revelar">
+          <div class="pessoa__topo">
+            <span class="pessoa__foto" aria-hidden="true">K</span>
+            <div>
+              <h3 class="pessoa__nome">Prof. Dr. Kleber Sartorio</h3>
+              <p class="pessoa__funcao">Professor orientador</p>
+            </div>
+          </div>
+          <p class="pessoa__bio">Orienta o projeto na disciplina de Introdução à Extensão, acompanha a metodologia e revisa todos os conteúdos antes das atividades com a comunidade.</p>
+        </li></ul>
+  </div>
+</section>
+
+<section class="secao secao--chamada">
+  <div class="container chamada">
+    <h2 class="titulo-secao chamada__titulo">Aprendizado que vira <span class="realce">benefício real</span></h2>
+    <p class="chamada__texto">É isso que buscamos: que a comunidade de Monte Alto navegue pelo ambiente
+    digital com segurança, autonomia e tranquilidade. Se você quer levar as atividades ao seu grupo,
+    fale com a gente.</p>
+    <a class="botao" href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Falar com a equipe</a>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__topo">
+    <div>
+      <p class="rodape__logo"><span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span></p>
+      <p class="rodape__texto">
+        Palestra, oficina e cartilha gratuitas sobre prevenção de golpes virtuais, para moradores
+        de Monte Alto — SP — com atenção a quem recebe benefícios sociais e a pessoas idosas.
+      </p>
+      <p class="rodape__aviso">
+        Nunca pedimos senha, código de verificação, número de cartão, dado bancário ou número de
+        benefício — nem nas atividades, nem por telefone, nem por mensagem.
+      </p>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Navegue</h2>
+      <ul class="rodape__lista">
+        <li><a href="index.html">Início</a></li><li><a href="projeto.html">O Projeto</a></li><li><a href="sobrenos.html">Sobre Nós</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Participe</h2>
+      <ul class="rodape__lista">
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Inscrever meu grupo</a></li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Quero%20ser%20parceiro">Ser instituição parceira</a></li>
+        <li><a href="sobrenos.html#equipe">Conhecer a equipe</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Onde encontrar</h2>
+      <ul class="rodape__lista">
+        <li>Ações em Monte Alto — SP</li>
+        <li>IFSP Campus Catanduva — Curso de ADS</li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container rodape__base">
+    <p>© 2026 Conexão Cidadã, Segurança e Inclusão Digital. Projeto de extensão universitária, gratuito e sem fins lucrativos.</p>
+    <p>Orientação: Prof. Dr. Kleber Sartorio.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

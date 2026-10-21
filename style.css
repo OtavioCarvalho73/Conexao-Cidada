@@ -167,7 +167,7 @@ h1, h2, h3 {
 }
 
 .titulo-abertura {
-    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-size: clamp(2.3rem, 5.4vw, 4rem);
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -255,6 +255,7 @@ p { margin: 0 0 1.2rem; }
 .botao--vazado { background-color: transparent; color: var(--destaque); border-color: var(--borda-forte); }
 .botao--vazado:hover { background-color: transparent; border-color: var(--destaque); color: var(--acao-hover); }
 .botao--pequeno { min-height: 44px; padding: .4rem 1.2rem; font-size: .95rem; }
+.navegacao__lista .botao { white-space: nowrap; }
 
 /* ---------------- 06. CABEÇALHO E MENU ---------------- */
 .barra-acesso {
@@ -324,17 +325,19 @@ p { margin: 0 0 1.2rem; }
 .marca__texto { display: flex; flex-direction: column; line-height: 1.15; }
 .marca__texto strong {
     font-family: var(--fonte-titulo);
+    white-space: nowrap;
     font-size: 1.35rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .01em;
 }
 .marca__texto small {
-    font-size: .68rem;
+    font-size: .66rem;
     font-weight: 600;
-    letter-spacing: .18em;
+    letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--azul);
+    white-space: nowrap;
 }
 
 .navegacao__lista { display: flex; align-items: center; gap: .3rem; list-style: none; margin: 0; padding: 0; }
@@ -342,7 +345,8 @@ p { margin: 0 0 1.2rem; }
     display: inline-flex;
     align-items: center;
     min-height: 46px;
-    padding: .3rem 1rem;
+    padding: .3rem .85rem;
+    white-space: nowrap;
     border-radius: 999px;
     color: var(--txt-corpo);
     font-weight: 500;
@@ -802,7 +806,9 @@ p { margin: 0 0 1.2rem; }
     .objetivos { grid-template-columns: 1fr; }
     .rodape__topo { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 760px) {
+/* O menu recolhe cedo: são cinco itens mais o botão de contato, e eles
+   não cabem numa barra estreita — nem enquanto a fonte web ainda carrega. */
+@media (max-width: 1150px) {
     .botao-menu { display: inline-flex; }
     .navegacao { display: none; width: 100%; order: 3; }
     .navegacao.esta-aberto { display: block; }
@@ -815,6 +821,9 @@ p { margin: 0 0 1.2rem; }
     .navegacao__link { min-height: 54px; border-radius: var(--raio-p); }
     .navegacao__lista .botao { margin-top: .6rem; }
     .cabecalho__interno { flex-wrap: wrap; }
+}
+
+@media (max-width: 760px) {
     .logo-ifsp img { height: 34px; }
     .marca__texto strong { font-size: 1.1rem; }
 
@@ -880,3 +889,313 @@ body.alto-contraste .pessoa__foto { background-color: #FFE14D; color: #000000; b
 body.alto-contraste .dica__numero { opacity: 1; }
 body.alto-contraste .abertura::before { display: none; }
 body.alto-contraste .botao:hover { background-color: #FFFFFF; border-color: #FFFFFF; color: #000000; }
+
+
+/* ---------------------------------------------------------
+   15. CARROSSEL DA CARTILHA
+   --------------------------------------------------------- */
+.abertura__grade--cartilha { grid-template-columns: 1.15fr .85fr; align-items: center; }
+
+/* Cartão de aviso da abertura */
+.cartao-aviso {
+    background-color: var(--alerta-fundo);
+    border: 1px solid rgba(255, 107, 107, .4);
+    border-radius: var(--raio);
+    padding: 1.9rem;
+}
+.cartao-aviso__titulo {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: var(--alerta);
+    margin-bottom: .9rem;
+}
+.cartao-aviso p { color: var(--txt-corpo); margin-bottom: .9rem; }
+.cartao-aviso p:last-child { margin-bottom: 0; }
+.cartao-aviso strong { color: var(--alerta); }
+.cartao-aviso__pe {
+    padding-top: .9rem;
+    border-top: 1px solid rgba(255, 107, 107, .3);
+    font-size: .96rem;
+    color: var(--txt-suave);
+}
+
+/* Variante neutra, usada na página de mídias */
+.cartao-aviso--neutro {
+    background-color: var(--sup-cartao);
+    border-color: var(--borda);
+}
+.cartao-aviso--neutro .cartao-aviso__titulo { color: var(--destaque); }
+.cartao-aviso--neutro strong { color: var(--txt-corpo); }
+.selo-obra {
+    display: grid; place-items: center;
+    width: 54px; height: 54px;
+    border-radius: 15px;
+    background-color: rgba(70, 140, 252, .16);
+    color: var(--destaque);
+    margin-bottom: 1.1rem;
+}
+
+.carrossel {
+    margin-top: 2.5rem;
+    background-color: var(--sup-cartao);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 1.8rem;
+}
+.carrossel__topo {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.carrossel__contador {
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: .95rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--marcador);
+}
+.carrossel__setas { display: flex; gap: .6rem; }
+.carrossel__seta {
+    display: inline-flex; align-items: center; gap: .35rem;
+    min-height: 48px; padding: .4rem 1.1rem;
+    background-color: transparent;
+    border: 2px solid var(--borda-forte);
+    border-radius: 999px;
+    color: var(--destaque);
+    font-family: var(--fonte-texto); font-size: .95rem; font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease;
+}
+.carrossel__seta:hover:not(:disabled) { border-color: var(--destaque); background-color: rgba(70,140,252,.1); }
+.carrossel__seta:disabled { opacity: .35; cursor: default; }
+
+.carrossel__barra {
+    height: 4px; border-radius: 999px;
+    background-color: var(--sup-alta);
+    overflow: hidden; margin-bottom: 1.8rem;
+}
+.carrossel__progresso {
+    height: 100%; width: 16.6%;
+    background-color: var(--marcador);
+    transition: width .35s ease;
+}
+
+/* Tipografia do conteúdo da cartilha escrito em texto */
+.painel__texto p { color: var(--txt-suave); }
+.painel__texto h4 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem; font-weight: 600;
+    text-transform: uppercase;
+    color: var(--txt-titulo);
+    margin: 1.6rem 0 .6rem;
+    display: flex; align-items: center; gap: .6rem;
+}
+.painel__num {
+    display: grid; place-items: center;
+    width: 30px; height: 30px; flex: none;
+    border-radius: 9px;
+    background-color: var(--marcador);
+    color: var(--marinho-900);
+    font-size: 1rem; font-weight: 700;
+}
+.painel__texto ul, .painel__numerada {
+    margin: 0 0 1rem;
+    padding-left: 1.3rem;
+    color: var(--txt-suave);
+}
+.painel__texto li { margin-bottom: .45rem; }
+.painel__texto strong { color: var(--txt-corpo); }
+.painel__protecao {
+    background-color: var(--sup-alta);
+    border-left: 3px solid var(--destaque);
+    border-radius: 0 var(--raio-p) var(--raio-p) 0;
+    padding: .8rem 1.1rem;
+    font-size: .95rem;
+}
+.painel__atencao {
+    background-color: var(--alerta-fundo);
+    border-left: 3px solid var(--alerta);
+    border-radius: 0 var(--raio-p) var(--raio-p) 0;
+    padding: .8rem 1.1rem;
+}
+.painel__atencao strong { color: var(--alerta); }
+.painel__ouro {
+    background-color: rgba(208, 176, 119, .14);
+    border: 1px solid var(--marcador);
+    border-radius: var(--raio-p);
+    padding: 1rem 1.2rem;
+    color: var(--txt-corpo);
+}
+.painel__ouro strong { color: var(--marcador); }
+.painel__credito { font-size: .9rem; margin-bottom: 0; }
+
+/* Uma lâmina do carrossel: a parte recortada da cartilha */
+.lamina { margin: 0; will-change: transform; }
+.lamina a {
+    display: block;
+    border-radius: var(--raio-p);
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    background-color: var(--marinho-900);
+    max-width: max-content;
+    margin: 0 auto;
+}
+.lamina img {
+    display: block;
+    width: auto; height: auto;
+    max-width: 100%;
+    max-height: 62vh;
+}
+.lamina__legenda {
+    margin-top: .9rem;
+    text-align: center;
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem; font-weight: 600;
+    letter-spacing: .04em; text-transform: uppercase;
+    color: var(--txt-titulo);
+}
+
+.carrossel__atalhos {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--borda);
+}
+.atalho {
+    min-height: 44px;
+    padding: .35rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--borda-forte);
+    border-radius: 999px;
+    color: var(--txt-suave);
+    font-family: var(--fonte-texto);
+    font-size: .92rem; font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.atalho:hover { border-color: var(--destaque); color: var(--destaque); }
+.atalho[aria-current="true"] {
+    background-color: var(--marcador);
+    border-color: var(--marcador);
+    color: var(--marinho-900);
+}
+
+/* O palco mantém altura estável para a página não pular entre as partes.
+   touch-action: pan-y deixa a rolagem vertical com o navegador e reserva
+   o movimento horizontal para o arraste do carrossel. */
+.carrossel__palco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52vh;
+    touch-action: pan-y;
+    cursor: grab;
+    overflow: hidden;
+}
+.carrossel__palco.esta-arrastando { cursor: grabbing; }
+.carrossel__palco.esta-arrastando .lamina { pointer-events: none; }
+
+/* A imagem não pode ser arrastada para fora como arquivo: o gesto é do carrossel */
+.lamina img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carrossel__nota {
+    margin-top: 1.4rem;
+    font-size: .96rem;
+    color: var(--txt-suave);
+}
+.cartao__acao { margin: 1.3rem 0 0; }
+
+/* ---------------------------------------------------------
+   16. PÁGINA DE MÍDIAS
+   --------------------------------------------------------- */
+.etapas { margin: 0; padding: 0; counter-reset: etp; }
+.etapa {
+    counter-increment: etp;
+    position: relative;
+    padding: 0 0 2rem 2.3rem;
+    border-left: 1px solid var(--borda);
+}
+.etapa:last-child { padding-bottom: 0; border-left-color: transparent; }
+.etapa::before {
+    content: "";
+    position: absolute; left: -7px; top: .4em;
+    width: 13px; height: 13px;
+    border-radius: 3px;
+    border: 2px solid var(--marcador);
+    background-color: var(--sup-pagina);
+}
+.etapa__quando {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-size: .82rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--marcador);
+    margin-bottom: .3rem;
+}
+.etapa__titulo { font-size: 1.3rem; text-transform: uppercase; margin-bottom: .4rem; }
+.etapa p { margin: 0; color: var(--txt-suave); }
+
+/* Cartão do que ainda não existe: contorno tracejado */
+.cartao--vazio {
+    border-style: dashed;
+    background-color: transparent;
+}
+.cartao--vazio:hover { transform: none; }
+
+/* ---------------------------------------------------------
+   17. AJUSTES RESPONSIVOS DAS SEÇÕES NOVAS
+   --------------------------------------------------------- */
+@media (max-width: 1000px) {
+    .abertura__grade--cartilha { grid-template-columns: 1fr; }
+    .painel { grid-template-columns: 1fr; gap: 1.6rem; }
+    .painel__figura { max-width: 330px; margin: 0 auto; }
+}
+@media (max-width: 760px) {
+    .carrossel { padding: 1.2rem; }
+    /* as partes ficam baixas numa tela estreita: a altura mínima do palco
+       acompanha, para não sobrar um vazio enorme em volta da imagem */
+    .carrossel__palco { min-height: 28vh; }
+    .lamina img { max-height: 58vh; }
+    .atalho { font-size: .86rem; padding: .35rem .8rem; }
+    .carrossel__topo { flex-direction: column; align-items: stretch; }
+    .carrossel__setas { justify-content: space-between; }
+    .carrossel__seta { flex: 1; justify-content: center; }
+    .painel__figura { max-width: 100%; }
+}
+
+/* Alto contraste */
+body.alto-contraste .cartao-aviso,
+body.alto-contraste .carrossel,
+body.alto-contraste .painel__figura a,
+body.alto-contraste .painel__ouro { border-width: 2px; }
+body.alto-contraste .painel__num,
+body.alto-contraste .selo-obra { background-color: #FFE14D; color: #000000; }
+body.alto-contraste .carrossel__ponto[aria-current="true"]::after { background-color: #FFE14D; }
+
+
+/* ---------------------------------------------------------
+   18. PÁGINA DA CARTILHA (independente do site principal)
+   --------------------------------------------------------- */
+.cabecalho--simples .cabecalho__interno { justify-content: space-between; }
+.cabecalho--simples .marca { cursor: default; }
+.abertura--cartilha { padding-bottom: 3rem; }
+.abertura--cartilha .texto-guia { max-width: 56ch; }
+
+.rodape--simples { padding-top: 0; }
+.rodape--simples .rodape__base {
+    border-top: none;
+    padding-top: 2rem;
+}
+
+.texto-cartilha { margin-top: 2.5rem; }
+.texto-cartilha .pergunta { margin-bottom: 1rem; }
+.texto-cartilha .pergunta__corpo > :last-child { margin-bottom: 0; }
+
+body.alto-contraste .atalho[aria-current="true"] { background-color: #FFE14D; color: #000000; }
+body.alto-contraste .lamina a { border-width: 2px; }

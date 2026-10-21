@@ -88,6 +88,164 @@
         Array.prototype.forEach.call(reveláveis, function (el) { observador.observe(el); });
     }
 
+
+    /* ---------- 6. Carrossel da cartilha ---------- */
+    var carrossel = document.querySelector("[data-carrossel]");
+    if (carrossel) {
+        var laminas   = carrossel.querySelectorAll("[data-lamina]");
+        var atalhos   = carrossel.querySelectorAll("[data-atalho]");
+        var btnAnt    = carrossel.querySelector("[data-anterior]");
+        var btnProx   = carrossel.querySelector("[data-proximo]");
+        var contador  = carrossel.querySelector("[data-contador]");
+        var progresso = carrossel.querySelector("[data-progresso]");
+        var anuncio   = carrossel.querySelector("[data-anuncio]");
+        var palco     = carrossel.querySelector("[data-palco]");
+        var atual     = 0;
+        var total     = laminas.length;
+
+        function mostrar(indice, avisar) {
+            atual = Math.max(0, Math.min(total - 1, indice));
+            var secao = laminas[atual].getAttribute("data-secao");
+
+            for (var i = 0; i < total; i++) laminas[i].hidden = (i !== atual);
+
+            Array.prototype.forEach.call(atalhos, function (a) {
+                a.setAttribute("aria-current",
+                    a.getAttribute("data-secao-btn") === secao ? "true" : "false");
+            });
+
+            contador.textContent = (atual + 1) + " de " + total;
+            progresso.style.width = ((atual + 1) / total * 100) + "%";
+
+            /* Um botão que desabilita com o foco dentro perde o foco e deixa
+               quem navega por teclado sem posição. Passa o foco ao vizinho. */
+            var focado = document.activeElement;
+            btnAnt.disabled  = (atual === 0);
+            btnProx.disabled = (atual === total - 1);
+            if (focado === btnAnt && btnAnt.disabled)  btnProx.focus();
+            if (focado === btnProx && btnProx.disabled) btnAnt.focus();
+
+            if (avisar && anuncio) {
+                var leg = laminas[atual].querySelector(".lamina__legenda");
+                anuncio.textContent = "Parte " + (atual + 1) + " de " + total +
+                    (leg ? ": " + leg.textContent : "") + ".";
+            }
+        }
+
+        function irPara(indice) {
+            mostrar(indice, true);
+            /* Mantém o topo do carrossel à vista ao trocar de parte, sem
+               arrastar a página quando o carrossel já está todo visível. */
+            if (carrossel.getBoundingClientRect().top < 0) {
+                carrossel.scrollIntoView({ behavior: semAnimacao ? "auto" : "smooth", block: "start" });
+            }
+        }
+
+        btnAnt.addEventListener("click", function () { irPara(atual - 1); });
+        btnProx.addEventListener("click", function () { irPara(atual + 1); });
+
+        Array.prototype.forEach.call(atalhos, function (a) {
+            a.addEventListener("click", function () {
+                irPara(parseInt(a.getAttribute("data-atalho"), 10));
+            });
+        });
+
+        carrossel.addEventListener("keydown", function (e) {
+            if (e.target.closest("a")) return;          /* não atrapalha links */
+            if (e.key === "ArrowLeft")  { e.preventDefault(); irPara(atual - 1); }
+            if (e.key === "ArrowRight") { e.preventDefault(); irPara(atual + 1); }
+        });
+
+        /* ---------- Arrastar com o dedo ou com o mouse ----------
+           Pointer Events atendem os dois com o mesmo código. A imagem
+           acompanha o movimento para o gesto ter resposta visível. */
+        var LIMIAR = 55;   /* o quanto arrastar para trocar de parte */
+        var FOLGA  = 10;   /* antes disso não decidimos se o gesto é horizontal */
+        var ar = { ativo: false, x0: 0, y0: 0, dx: 0, horizontal: null, moveu: false };
+
+        function deslocar(px) {
+            var l = laminas[atual];
+            l.style.transition = "none";
+            l.style.transform = px ? "translateX(" + px + "px)" : "";
+        }
+
+        function soltarVisual() {
+            var l = laminas[atual];
+            l.style.transition = semAnimacao ? "none" : "transform .25s ease";
+            l.style.transform = "";
+        }
+
+        function comecar(x, y) {
+            ar.ativo = true; ar.x0 = x; ar.y0 = y;
+            ar.dx = 0; ar.horizontal = null; ar.moveu = false;
+            /* A classe de arraste só entra quando o gesto se confirma
+               horizontal. Entrando aqui, ela desligaria os eventos da
+               lâmina já no clique simples, e o link da imagem pararia
+               de abrir. */
+        }
+
+        function mover(x, y) {
+            if (!ar.ativo) return false;
+            var dx = x - ar.x0, dy = y - ar.y0;
+
+            if (ar.horizontal === null) {
+                if (Math.abs(dx) < FOLGA && Math.abs(dy) < FOLGA) return false;
+                ar.horizontal = Math.abs(dx) > Math.abs(dy);
+                if (!ar.horizontal) { ar.ativo = false; return false; }
+                palco.classList.add("esta-arrastando");
+            }
+
+            ar.dx = dx;
+            if (Math.abs(dx) > 4) ar.moveu = true;
+            /* resistência nas pontas: não há para onde ir */
+            var fim = (dx > 0 && atual === 0) || (dx < 0 && atual === total - 1);
+            deslocar(fim ? dx / 4 : dx);
+            return true;
+        }
+
+        function terminar() {
+            if (!ar.ativo) return;
+            ar.ativo = false;
+            palco.classList.remove("esta-arrastando");
+            var dx = ar.dx;
+            soltarVisual();
+            if (ar.horizontal && Math.abs(dx) >= LIMIAR) {
+                irPara(dx < 0 ? atual + 1 : atual - 1);
+            }
+        }
+
+        if (window.PointerEvent) {
+            palco.addEventListener("pointerdown", function (e) {
+                if (e.pointerType === "mouse" && e.button !== 0) return;
+                comecar(e.clientX, e.clientY);
+            });
+            palco.addEventListener("pointermove", function (e) {
+                if (mover(e.clientX, e.clientY) && e.cancelable) e.preventDefault();
+            });
+            ["pointerup", "pointercancel", "pointerleave"].forEach(function (ev) {
+                palco.addEventListener(ev, terminar);
+            });
+        } else {
+            /* navegadores antigos: só o dedo */
+            palco.addEventListener("touchstart", function (e) {
+                comecar(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            }, { passive: true });
+            palco.addEventListener("touchmove", function (e) {
+                mover(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            }, { passive: true });
+            palco.addEventListener("touchend", terminar);
+        }
+
+        /* Arrastar sobre a imagem não pode abrir o link nem iniciar o
+           arrasto nativo de imagem do navegador. */
+        palco.addEventListener("dragstart", function (e) { e.preventDefault(); });
+        palco.addEventListener("click", function (e) {
+            if (ar.moveu) { e.preventDefault(); e.stopPropagation(); ar.moveu = false; }
+        }, true);
+
+        mostrar(0, false);
+    }
+
     /* ---------- 5. Quiz "É golpe?" ---------- */
     var quiz = document.getElementById("quiz");
     if (!quiz) return;

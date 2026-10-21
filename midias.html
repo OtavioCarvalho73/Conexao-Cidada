@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Página em desenvolvimento: aqui ficarão as fotos, os números e os registros da palestra do projeto Conexão Cidadã, prevista para 21 de outubro de 2026 em Monte Alto-SP.">
+<title>Mídias — Conexão Cidadã</title>
+
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#010B39">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<script>
+/* Se uma imagem não carregar, tenta as outras extensões listadas em
+   data-alternativas antes de desistir. Fica no <head> para funcionar
+   mesmo que a imagem falhe antes do script.js carregar. */
+function tentarOutraFoto(img) {
+  var lista = (img.getAttribute("data-alternativas") || "").split(",").filter(Boolean);
+  var i = parseInt(img.getAttribute("data-tentativa") || "0", 10);
+  if (i < lista.length) {
+    img.setAttribute("data-tentativa", i + 1);
+    img.src = lista[i].trim();
+  } else {
+    var figura = img.closest("figure");
+    if (figura) { figura.remove(); } else { img.remove(); }
+  }
+}
+</script>
+</head>
+<body>
+
+<a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+<p id="aviso-acessibilidade" class="so-leitor-tela" role="status" aria-live="polite"></p>
+
+<div class="barra-acesso">
+  <div class="container barra-acesso__interna">
+    <span class="barra-acesso__rotulo">Ajuste a leitura</span>
+    <div class="controle-fonte" role="group" aria-label="Tamanho do texto">
+      <button type="button" class="btn-acesso" data-fonte="diminuir" aria-label="Diminuir o tamanho do texto">A<span aria-hidden="true">−</span></button>
+      <button type="button" class="btn-acesso" data-fonte="normal" aria-label="Voltar o texto ao tamanho normal">A</button>
+      <button type="button" class="btn-acesso" data-fonte="aumentar" aria-label="Aumentar o tamanho do texto">A<span aria-hidden="true">+</span></button>
+    </div>
+    <button type="button" class="btn-acesso" data-contraste aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 3.4a8.6 8.6 0 010 17.2z" fill="currentColor"/>
+      </svg>
+      Alto contraste
+    </button>
+  </div>
+</div>
+
+<header class="cabecalho">
+  <div class="container cabecalho__interno">
+    <div class="identidade">
+      <span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span>
+      <span class="identidade__filete" aria-hidden="true"></span>
+      <a class="marca" href="projeto.html">
+        <span class="marca__texto"><strong>Conexão Cidadã</strong><small>Segurança e Inclusão Digital</small></span>
+      </a>
+    </div>
+    <button type="button" class="botao-menu" data-menu aria-expanded="false" aria-controls="menu-principal">
+      <span class="botao-menu__barras" aria-hidden="true"></span> Menu
+    </button>
+    <nav class="navegacao" id="menu-principal" aria-label="Navegação principal">
+      <ul class="navegacao__lista">
+        <li><a href="projeto.html" class="navegacao__link">O Projeto</a></li>
+        <li><a href="informacoes.html" class="navegacao__link">Informações</a></li>
+        <li><a href="midias.html" class="navegacao__link esta-ativo" aria-current="page">Mídias</a></li>
+        <li><a href="sobrenos.html" class="navegacao__link">Sobre Nós</a></li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br" class="botao botao--pequeno">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ ABERTURA ============ -->
+<section class="abertura">
+  <div class="container">
+    <div class="abertura__grade abertura__grade--cartilha">
+      <div class="abertura__texto">
+        <p class="rotulo">Mídias da palestra</p>
+        <h1 class="titulo-abertura">Esta página ainda<br>está em <span class="realce">construção</span></h1>
+        <p class="texto-guia">
+          É aqui que vão ficar as fotos, os números e os registros do encontro em Monte Alto.
+          A atividade está prevista para <strong>21 de outubro de 2026</strong> e, como ainda
+          não aconteceu, não há o que mostrar por enquanto.
+        </p>
+        <p><span class="etiqueta-solida">Volte depois da atividade</span></p>
+        <div class="acoes">
+          <a class="botao" href="index.html">Ler a cartilha enquanto isso</a>
+          <a class="botao botao--vazado" href="projeto.html">Ver o cronograma do projeto</a>
+        </div>
+      </div>
+
+      <aside class="cartao-aviso cartao-aviso--neutro">
+        <span class="selo-obra" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 7v5.2l3.2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h2 class="cartao-aviso__titulo">Em desenvolvimento</h2>
+        <p>
+          A página existe desde já para que o endereço impresso no panfleto e no QR Code
+          continue funcionando depois do evento, sem precisar mudar o material.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE VEM AQUI ============ -->
+<section class="secao secao--clara">
+  <div class="container">
+    <div class="duas-colunas">
+      <div class="duas-colunas__lado">
+        <p class="rotulo">Como vai ficar</p>
+        <h2 class="titulo-secao">Três passos até a <span class="realce">publicação</span></h2>
+        <p class="texto-guia">
+          A documentação do projeto segue o planejamento aprovado na Fase 2. Primeiro acontece
+          a atividade, depois a equipe organiza os registros e só então eles vão ao ar.
+        </p>
+      </div>
+      <div class="duas-colunas__lado">
+        <ol class="etapas lista-limpa">
+        <li class="etapa">
+          <span class="etapa__quando">Previsto para 21/10/2026</span>
+          <h3 class="etapa__titulo">O encontro acontece</h3>
+          <p>Palestra articulada com a Prefeitura e evento aberto à comunidade, em Monte Alto. É quando as fotos, os números de participação e os depoimentos são produzidos.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__quando">Logo após a atividade</span>
+          <h3 class="etapa__titulo">Organização dos registros</h3>
+          <p>A equipe reúne as fotos autorizadas, as listas de presença e os resultados dos questionários. Nada é publicado antes dessa conferência.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa__quando">Até dezembro de 2026</span>
+          <h3 class="etapa__titulo">Publicação nesta página</h3>
+          <p>Galeria de fotos, números alcançados, materiais usados no dia e um resumo do que funcionou. Os mesmos registros compõem o relatório final do projeto.</p>
+        </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ O QUE SERÁ PUBLICADO ============ -->
+<section class="secao">
+  <div class="container">
+    <p class="rotulo">O que será publicado</p>
+    <h2 class="titulo-secao titulo-secao--largo">Registros do <span class="realce">dia</span></h2>
+
+    <div class="grade grade--3">
+      <article class="cartao cartao--vazio">
+        <span class="cartao__icone" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="6.5" width="18" height="13" rx="2.2" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="13" r="3.6" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M8.5 6.5l1.4-2.2h4.2l1.4 2.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="cartao__titulo">Galeria de fotos</h3>
+        <p>Imagens da palestra, da oficina e da entrega dos materiais — somente com autorização
+        de uso de imagem assinada por quem aparece.</p>
+      </article>
+
+      <article class="cartao cartao--vazio">
+        <span class="cartao__icone" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 19V9M10 19V5M16 19v-7M21 19H3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <h3 class="cartao__titulo">Números do encontro</h3>
+        <p>Quantas pessoas participaram em cada frente, quantas cartilhas foram entregues e
+        o que mudou entre o questionário inicial e o final.</p>
+      </article>
+
+      <article class="cartao cartao--vazio">
+        <span class="cartao__icone" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M5 4h9l5 5v11H5V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M14 4v5h5M8.5 13h7M8.5 16.5h4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <h3 class="cartao__titulo">Materiais usados</h3>
+        <p>A apresentação, a cartilha e o panfleto na versão final aplicada no dia, disponíveis
+        para quem quiser reaproveitar em outra ação.</p>
+      </article>
+    </div>
+
+    <div class="aviso">
+      <span class="aviso__icone" aria-hidden="true">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3l7.5 3.4v5c0 4.4-3.1 8.2-7.5 9.3-4.4-1.1-7.5-4.9-7.5-9.3v-5L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9.4 12.2l1.9 1.9 3.4-3.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <p>
+        <strong>Nenhuma foto é publicada sem autorização.</strong>
+        Quem participar das atividades decide se quer ou não aparecer, e os depoimentos são
+        voluntários. Não divulgamos dados pessoais de participantes em nenhuma hipótese.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAMADA ============ -->
+<section class="secao secao--chamada">
+  <div class="container chamada">
+    <h2 class="titulo-secao chamada__titulo">Quer participar do <span class="realce">encontro</span>?</h2>
+    <p class="chamada__texto">
+      Ainda dá tempo de inscrever o seu grupo na atividade de outubro. Fale com a equipe
+      para combinar data, local e número de participantes.
+    </p>
+    <a class="botao" href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Falar com a equipe</a>
+  </div>
+</section>
+</main>
+
+<footer class="rodape">
+  <div class="container rodape__topo">
+    <div>
+      <p class="rodape__logo"><span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span></p>
+      <p class="rodape__texto">
+        Palestra, oficina e cartilha gratuitas sobre prevenção de golpes virtuais, para moradores
+        de Monte Alto — SP — com atenção a quem recebe benefícios sociais e a pessoas idosas.
+      </p>
+      <p class="rodape__aviso">
+        Nunca pedimos senha, código de verificação, número de cartão, dado bancário ou número de
+        benefício — nem nas atividades, nem por telefone, nem por mensagem.
+      </p>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Navegue</h2>
+      <ul class="rodape__lista">
+        <li><a href="projeto.html">O Projeto</a></li><li><a href="informacoes.html">Informações</a></li><li><a href="midias.html">Mídias</a></li><li><a href="sobrenos.html">Sobre Nós</a></li><li><a href="index.html">Cartilha</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Participe</h2>
+      <ul class="rodape__lista">
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Inscrever meu grupo</a></li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Quero%20ser%20parceiro">Ser instituição parceira</a></li>
+        <li><a href="sobrenos.html#equipe">Conhecer a equipe</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="rodape__titulo">Onde encontrar</h2>
+      <ul class="rodape__lista">
+        <li>Ações em Monte Alto — SP</li>
+        <li>IFSP Campus Catanduva — Curso de ADS</li>
+        <li><a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container rodape__base">
+    <p>© 2026 Conexão Cidadã, Segurança e Inclusão Digital. Projeto de extensão universitária, gratuito e sem fins lucrativos.</p>
+    <p>Orientação: Prof. Dr. Kleber Sartorio.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

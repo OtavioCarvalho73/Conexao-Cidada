@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Objetivos, entregas, cronograma, indicadores, parceiros e ODS do projeto de extensão Conexão Cidadã, Segurança e Inclusão Digital.">
-<title>Início — Conexão Cidadã</title>
+<meta name="description" content="Cartilha do projeto Conexão Cidadã: os cinco golpes virtuais mais comuns, os sinais de alerta, o que fazer em caso de fraude e onde buscar orientação em Monte Alto-SP.">
+<title>Cartilha — Conexão Cidadã</title>
 
 <link rel="icon" href="img/favicon.ico" sizes="any">
 <link rel="icon" href="img/favicon.png" type="image/png">
@@ -15,25 +15,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
-<script>
-/* Se uma imagem não carregar, tenta as outras extensões listadas em
-   data-alternativas antes de desistir. Fica no <head> para funcionar
-   mesmo que a imagem falhe antes do script.js carregar. */
-function tentarOutraFoto(img) {
-  var lista = (img.getAttribute("data-alternativas") || "").split(",").filter(Boolean);
-  var i = parseInt(img.getAttribute("data-tentativa") || "0", 10);
-  if (i < lista.length) {
-    img.setAttribute("data-tentativa", i + 1);
-    img.src = lista[i].trim();
-  } else {
-    var figura = img.closest("figure");
-    if (figura) { figura.remove(); } else { img.remove(); }
-  }
-}
-</script>
 </head>
-<body>
+<body class="pagina-cartilha">
 
 <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
 <p id="aviso-acessibilidade" class="so-leitor-tela" role="status" aria-live="polite"></p>
@@ -56,243 +39,481 @@ function tentarOutraFoto(img) {
   </div>
 </div>
 
-<header class="cabecalho">
+<!-- Cabeçalho próprio: esta página não carrega o menu do site -->
+<header class="cabecalho cabecalho--simples">
   <div class="container cabecalho__interno">
     <div class="identidade">
       <span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span>
       <span class="identidade__filete" aria-hidden="true"></span>
-      <a class="marca" href="index.html">
+      <span class="marca">
         <span class="marca__texto"><strong>Conexão Cidadã</strong><small>Segurança e Inclusão Digital</small></span>
-      </a>
+      </span>
     </div>
-    <button type="button" class="botao-menu" data-menu aria-expanded="false" aria-controls="menu-principal">
-      <span class="botao-menu__barras" aria-hidden="true"></span> Menu
-    </button>
-    <nav class="navegacao" id="menu-principal" aria-label="Navegação principal">
-      <ul class="navegacao__lista">
-        <li><a href="index.html" class="navegacao__link esta-ativo" aria-current="page">Início</a></li><li><a href="informacoes.html" class="navegacao__link">Informações</a></li><li><a href="sobrenos.html" class="navegacao__link">Sobre Nós</a></li><li><a href="mailto:conexaocidada@ifsp.edu.br" class="botao botao--pequeno">Fale com a gente</a></li>
-      </ul>
-    </nav>
+    <a class="botao botao--pequeno" href="projeto.html">Ir para o site do projeto</a>
   </div>
 </header>
 
 <main id="conteudo">
 
-<section class="abertura">
+<section class="abertura abertura--cartilha">
   <div class="container">
-    <p class="rotulo">Projeto de extensão · IFSP Catanduva</p>
-    <h1 class="titulo-abertura">Conexão Cidadã,<br>Segurança e <span class="realce">Inclusão Digital</span></h1>
+    <p class="rotulo">Cartilha impressa · leitura livre</p>
+    <h1 class="titulo-abertura">Reconheça o golpe<br>antes de <span class="realce">responder</span></h1>
     <p class="texto-guia">
-      Conscientização e capacitação básica de pessoas de baixa renda e beneficiárias de programas
-      sociais de Monte Alto — SP, incluindo pessoas idosas, para reconhecer, prevenir e responder com
-      segurança a golpes virtuais — por meio de uma palestra articulada com a assistência municipal
-      e de um evento aberto à comunidade.
+      Esta é a cartilha que entregamos nas atividades do projeto, dividida em
+      20 partes para ler na tela. Os cinco golpes mais comuns, os sinais que
+      denunciam cada um, o que fazer depois de uma fraude e onde buscar ajuda.
     </p>
     <div class="acoes">
-      <a class="botao" href="informacoes.html#quiz">Testar meus conhecimentos</a>
-      <a class="botao botao--vazado" href="informacoes.html">Ver as dicas</a>
-    </div>
-    <div class="numeros">
-      <div class="numero"><span class="numero__valor">2</span><p class="numero__rotulo">Frentes de ação: palestra articulada e evento aberto.</p></div>
-      <div class="numero"><span class="numero__valor">60</span><p class="numero__rotulo">Participantes que queremos alcançar.</p></div>
-      <div class="numero"><span class="numero__valor">24/10</span><p class="numero__rotulo">Data prevista do grande encontro, em 2026.</p></div>
+      <a class="botao" href="#carrossel">Começar a leitura</a>
+      <a class="botao botao--vazado" href="cartilha/Cartilha-Conexao-Cidada.pdf" download>Baixar em PDF</a>
     </div>
   </div>
 </section>
 
-<section class="secao secao--clara">
+<section class="secao secao--clara" id="carrossel">
   <div class="container">
-    <div class="duas-colunas">
-      <div class="duas-colunas__lado">
-        <p class="rotulo">O problema</p>
-        <h2 class="titulo-secao">Quem tem menos é quem mais <span class="realce">perde</span></h2>
+    <div class="carrossel" data-carrossel>
+      <div class="carrossel__topo">
+        <p class="carrossel__contador" data-contador>1 de 20</p>
+        <div class="carrossel__setas">
+          <button type="button" class="carrossel__seta" data-anterior aria-label="Parte anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="carrossel__seta-texto">Anterior</span>
+          </button>
+          <button type="button" class="carrossel__seta" data-proximo aria-label="Próxima parte">
+            <span class="carrossel__seta-texto">Próxima</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
-      <div class="duas-colunas__lado">
-        <p>Em Monte Alto e no entorno, pessoas de baixa renda e beneficiárias de programas sociais usam
-        celulares, aplicativos de mensagens, redes sociais e serviços digitais — muitas vezes sem orientação
-        suficiente sobre proteção de dados e reconhecimento de abordagens fraudulentas. Pessoas idosas
-        integram esse público e somam vulnerabilidades próprias.</p>
-        <p>Golpes envolvendo benefícios sociais, falsas centrais de atendimento, links de phishing, clonagem
-        de contas e pedidos urgentes de dinheiro causam prejuízo financeiro e emocional. Para quem depende
-        de um benefício para o mês inteiro, uma única fraude compromete comida, remédio e aluguel.</p>
-        <p>A demanda é oferecer informação acessível, demonstrações práticas e espaço para dúvidas, em duas
-        frentes: uma palestra articulada com a Prefeitura para o público da assistência municipal e um evento
-        aberto ao restante da comunidade.</p>
+
+      <div class="carrossel__barra"><div class="carrossel__progresso" data-progresso></div></div>
+
+      <div class="carrossel__palco" data-palco>
+      <figure class="lamina" data-lamina data-secao="1"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="1 de 20: O que são os golpes virtuais">
+        <a href="img/cartilha/cartilha-01.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-01.jpg" loading="eager"
+               alt="Parte 1 de 20 da cartilha impressa: O que são os golpes virtuais. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">O que são os golpes virtuais</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="1"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="2 de 20: Golpe 1 — Falsa central de atendimento" hidden>
+        <a href="img/cartilha/cartilha-02.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-02.jpg" loading="lazy"
+               alt="Parte 2 de 20 da cartilha impressa: Golpe 1 — Falsa central de atendimento. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Golpe 1 — Falsa central de atendimento</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="1"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="3 de 20: Golpe 2 — Link falso por mensagem ou e-mail" hidden>
+        <a href="img/cartilha/cartilha-03.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-03.jpg" loading="lazy"
+               alt="Parte 3 de 20 da cartilha impressa: Golpe 2 — Link falso por mensagem ou e-mail. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Golpe 2 — Link falso por mensagem ou e-mail</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="2"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="4 de 20: Golpe 3 — Benefício bloqueado" hidden>
+        <a href="img/cartilha/cartilha-04.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-04.jpg" loading="lazy"
+               alt="Parte 4 de 20 da cartilha impressa: Golpe 3 — Benefício bloqueado. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Golpe 3 — Benefício bloqueado</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="2"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="5 de 20: Golpe 4 — Falso parente ou conta clonada" hidden>
+        <a href="img/cartilha/cartilha-05.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-05.jpg" loading="lazy"
+               alt="Parte 5 de 20 da cartilha impressa: Golpe 4 — Falso parente ou conta clonada. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Golpe 4 — Falso parente ou conta clonada</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="2"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="6 de 20: Golpe 5 — Falso recuperador de dinheiro" hidden>
+        <a href="img/cartilha/cartilha-06.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-06.jpg" loading="lazy"
+               alt="Parte 6 de 20 da cartilha impressa: Golpe 5 — Falso recuperador de dinheiro. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Golpe 5 — Falso recuperador de dinheiro</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="2"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="7 de 20: Sinais de alerta" hidden>
+        <a href="img/cartilha/cartilha-07.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-07.jpg" loading="lazy"
+               alt="Parte 7 de 20 da cartilha impressa: Sinais de alerta. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Sinais de alerta</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="3"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="8 de 20: Atenção à aparência da mensagem" hidden>
+        <a href="img/cartilha/cartilha-08.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-08.jpg" loading="lazy"
+               alt="Parte 8 de 20 da cartilha impressa: Atenção à aparência da mensagem. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Atenção à aparência da mensagem</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="3"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="9 de 20: Cinco atitudes — 1 a 3" hidden>
+        <a href="img/cartilha/cartilha-09.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-09.jpg" loading="lazy"
+               alt="Parte 9 de 20 da cartilha impressa: Cinco atitudes — 1 a 3. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Cinco atitudes — 1 a 3</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="3"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="10 de 20: Cinco atitudes — 4 e 5" hidden>
+        <a href="img/cartilha/cartilha-10.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-10.jpg" loading="lazy"
+               alt="Parte 10 de 20 da cartilha impressa: Cinco atitudes — 4 e 5. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Cinco atitudes — 4 e 5</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="3"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="11 de 20: As três regras de ouro" hidden>
+        <a href="img/cartilha/cartilha-11.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-11.jpg" loading="lazy"
+               alt="Parte 11 de 20 da cartilha impressa: As três regras de ouro. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">As três regras de ouro</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="4"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="12 de 20: Como criar uma senha mais segura" hidden>
+        <a href="img/cartilha/cartilha-12.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-12.jpg" loading="lazy"
+               alt="Parte 12 de 20 da cartilha impressa: Como criar uma senha mais segura. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Como criar uma senha mais segura</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="4"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="13 de 20: Palavras aleatórias formam uma senha forte" hidden>
+        <a href="img/cartilha/cartilha-13.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-13.jpg" loading="lazy"
+               alt="Parte 13 de 20 da cartilha impressa: Palavras aleatórias formam uma senha forte. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Palavras aleatórias formam uma senha forte</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="4"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="14 de 20: Caí em um golpe. E agora?" hidden>
+        <a href="img/cartilha/cartilha-14.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-14.jpg" loading="lazy"
+               alt="Parte 14 de 20 da cartilha impressa: Caí em um golpe. E agora?. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Caí em um golpe. E agora?</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="5"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="15 de 20: Em caso de fraude — passos 1 a 3" hidden>
+        <a href="img/cartilha/cartilha-15.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-15.jpg" loading="lazy"
+               alt="Parte 15 de 20 da cartilha impressa: Em caso de fraude — passos 1 a 3. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Em caso de fraude — passos 1 a 3</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="5"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="16 de 20: Em caso de fraude — passos 4 a 6" hidden>
+        <a href="img/cartilha/cartilha-16.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-16.jpg" loading="lazy"
+               alt="Parte 16 de 20 da cartilha impressa: Em caso de fraude — passos 4 a 6. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Em caso de fraude — passos 4 a 6</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="5"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="17 de 20: Cair em um golpe não é vergonha" hidden>
+        <a href="img/cartilha/cartilha-17.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-17.jpg" loading="lazy"
+               alt="Parte 17 de 20 da cartilha impressa: Cair em um golpe não é vergonha. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Cair em um golpe não é vergonha</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="6"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="18 de 20: Onde buscar orientação" hidden>
+        <a href="img/cartilha/cartilha-18.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-18.jpg" loading="lazy"
+               alt="Parte 18 de 20 da cartilha impressa: Onde buscar orientação. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Onde buscar orientação</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="6"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="19 de 20: Segurança digital é cidadania" hidden>
+        <a href="img/cartilha/cartilha-19.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-19.jpg" loading="lazy"
+               alt="Parte 19 de 20 da cartilha impressa: Segurança digital é cidadania. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Segurança digital é cidadania</figcaption>
+      </figure>
+
+      <figure class="lamina" data-lamina data-secao="6"
+               role="group" aria-roledescription="imagem da cartilha"
+               aria-label="20 de 20: Realização e parceria" hidden>
+        <a href="img/cartilha/cartilha-20.jpg" target="_blank" rel="noopener"
+           aria-label="Abrir esta parte da cartilha em tamanho real, em uma nova aba">
+          <img src="img/cartilha/cartilha-20.jpg" loading="lazy"
+               alt="Parte 20 de 20 da cartilha impressa: Realização e parceria. O texto completo está logo abaixo do carrossel.">
+        </a>
+        <figcaption class="lamina__legenda">Realização e parceria</figcaption>
+      </figure>
       </div>
+
+      <div class="carrossel__atalhos" role="group" aria-label="Ir para uma parte da cartilha">
+        <button type="button" class="atalho" data-atalho="0" data-secao-btn="1" aria-current="true">Golpes 1 e 2</button>
+        <button type="button" class="atalho" data-atalho="3" data-secao-btn="2">Golpes 3 a 5</button>
+        <button type="button" class="atalho" data-atalho="7" data-secao-btn="3">Cinco atitudes</button>
+        <button type="button" class="atalho" data-atalho="11" data-secao-btn="4">Senha segura</button>
+        <button type="button" class="atalho" data-atalho="14" data-secao-btn="5">Em caso de fraude</button>
+        <button type="button" class="atalho" data-atalho="17" data-secao-btn="6">Onde buscar ajuda</button>
+      </div>
+
+      <p class="so-leitor-tela" role="status" aria-live="polite" data-anuncio></p>
     </div>
+
+    <p class="carrossel__nota">
+      Prefere no papel? <a href="cartilha/Cartilha-Conexao-Cidada.pdf" download>Baixe a cartilha
+      completa em PDF</a> e imprima frente e verso — ela foi feita para dobrar em três.
+    </p>
   </div>
 </section>
 
 <section class="secao">
   <div class="container">
-    <p class="rotulo">Objetivos específicos</p>
-    <h2 class="titulo-secao titulo-secao--largo">O que pretendemos <span class="realce">fazer</span></h2>
-    <ol class="objetivos"><li>Pesquisar os principais golpes e crimes virtuais que atingem pessoas de baixa renda, beneficiárias de programas sociais e pessoas idosas, com atenção a aplicativos bancários, benefícios sociais, cartões, redes sociais e aplicativos de mensagens.</li>
-<li>Apresentar, em linguagem simples, exemplos de fraudes e sinais que podem indicar uma tentativa de golpe ou engenharia social.</li>
-<li>Orientar os participantes sobre a proteção de senhas, códigos de verificação, dados pessoais, documentos e informações financeiras.</li>
-<li>Realizar uma palestra destinada ao público encaminhado pela Prefeitura e um evento aberto à comunidade, com oficina, orientações práticas, materiais impressos e recursos digitais acessíveis.</li>
-<li>Desenvolver e testar ferramentas educativas simples — formulário eletrônico, recurso digital informativo e panfleto com QR Code — e avaliar a compreensão dos participantes antes e depois das atividades.</li></ol>
-  </div>
-</section>
+    <p class="rotulo">A cartilha em texto</p>
+    <h2 class="titulo-secao titulo-secao--largo">Para ler com letra <span class="realce">maior</span></h2>
+    <p class="texto-guia">
+      O mesmo conteúdo das imagens, escrito. Aumente a letra pelos botões no alto da página,
+      copie o que precisar ou ouça pelo leitor de tela.
+    </p>
+    <div class="texto-cartilha">
+      <details class="pergunta" open>
+        <summary>Painel 1 — Como os golpes chegam até você</summary>
+        <div class="pergunta__corpo painel__texto">
+          <p>Os golpes virtuais acontecem por meio de ligações telefônicas, mensagens,
+    e-mails e redes sociais. Os criminosos utilizam o medo, a urgência e a confiança
+    para enganar as pessoas e conseguir dinheiro ou informações pessoais.</p>
 
-<section class="secao secao--clara">
-  <div class="container">
-    <p class="rotulo">O que será entregue</p>
-    <h2 class="titulo-secao titulo-secao--largo">Produtos e <span class="realce">serviços</span></h2>
-    <ul class="grade grade--2 lista-limpa"><li class="cartao revelar">
-        <h3 class="cartao__titulo">Palestra articulada com a Prefeitura</h3><p>Para pessoas de baixa renda e beneficiárias de programas sociais, sobre golpes virtuais, fraudes com benefícios e proteção de dados.</p></li>
-<li class="cartao revelar">
-        <h3 class="cartao__titulo">Evento aberto à comunidade</h3><p>Com palestra, oficina prática e espaço para dúvidas, incluindo pessoas idosas, familiares e demais interessados.</p></li>
-<li class="cartao revelar">
-        <h3 class="cartao__titulo">Cartilha educativa</h3><p>Impressa e digital, em linguagem simples, com orientações para identificar e prevenir golpes digitais.</p></li>
-<li class="cartao revelar">
-        <h3 class="cartao__titulo">Recursos digitais de apoio</h3><p>Material informativo, orientação individual, formulário de avaliação e panfleto com QR Code — sempre com alternativa impressa.</p></li></ul>
+    <h4><span class="painel__num">1</span> Falsa central de atendimento</h4>
+    <ul>
+      <li>O golpista se passa por funcionário do banco ou do INSS, afirmando que sua conta foi invadida ou apresenta algum problema.</li>
+      <li>Pede senhas, códigos de verificação ou transferências para uma suposta conta segura.</li>
+    </ul>
+    <p class="painel__protecao"><strong>Como se proteger:</strong> não informe senhas ou códigos
+    e nunca transfira dinheiro por orientação de desconhecidos. Entre em contato com o banco
+    pelos canais oficiais.</p>
 
-    <div class="aviso">
-      <span class="aviso__icone" aria-hidden="true">
-        <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3l7.5 3.4v5c0 4.4-3.1 8.2-7.5 9.3-4.4-1.1-7.5-4.9-7.5-9.3v-5L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-          <path d="M9.4 12.2l1.9 1.9 3.4-3.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      <p><strong>Todos os exemplos usados são fictícios.</strong>
-      Em nenhuma etapa solicitamos ou registramos senha, código de verificação, número de cartão,
-      dado bancário, número de benefício ou documento pessoal — inclusive nos formulários de avaliação.</p>
+    <h4><span class="painel__num">2</span> Link falso por mensagem ou e-mail</h4>
+    <ul>
+      <li>A mensagem informa que sua conta será bloqueada ou oferece prêmios e promoções.</li>
+      <li>O link direciona para uma página falsa que pode roubar seus dados.</li>
+    </ul>
+    <p class="painel__protecao"><strong>Como se proteger:</strong> não clique em links suspeitos.
+    Acesse o aplicativo ou o site oficial diretamente.</p>
+        </div>
+      </details>
+      <details class="pergunta">
+        <summary>Painel 2 — Benefício, parente falso e recuperador</summary>
+        <div class="pergunta__corpo painel__texto">
+          <h4><span class="painel__num">3</span> Golpe do benefício bloqueado</h4>
+    <ul>
+      <li>O criminoso afirma que seu benefício será bloqueado ou precisa ser atualizado.</li>
+      <li>Solicita documentos, dados bancários ou informações pessoais.</li>
+    </ul>
+    <p class="painel__protecao"><strong>Como se proteger:</strong> não envie documentos por
+    mensagens suspeitas. Consulte o aplicativo oficial ou procure o CRAS para orientação.</p>
+
+    <h4><span class="painel__num">4</span> Falso parente ou conta clonada</h4>
+    <ul>
+      <li>Uma pessoa se passa por familiar ou amigo.</li>
+      <li>Pede dinheiro por Pix, alegando urgência, ou envia links suspeitos.</li>
+    </ul>
+    <p class="painel__protecao"><strong>Como se proteger:</strong> confirme a identidade por uma
+    ligação ou outro canal de confiança antes de transferir dinheiro ou abrir links.</p>
+
+    <h4><span class="painel__num">5</span> Falso recuperador de dinheiro</h4>
+    <ul>
+      <li>Após uma fraude, alguém promete recuperar o valor perdido.</li>
+      <li>Exige pagamento antecipado de uma taxa.</li>
+    </ul>
+    <p class="painel__protecao"><strong>Como se proteger:</strong> desconfie de promessas de
+    recuperação garantida e de cobranças antecipadas. Procure seu banco e os canais oficiais.</p>
+
+    <h4>Sinais de alerta</h4>
+    <ul>
+      <li>A mensagem exigir uma decisão imediata.</li>
+      <li>Alguém ameaçar bloquear sua conta ou seu benefício.</li>
+      <li>Pedirem senhas, códigos de verificação ou dados bancários.</li>
+      <li>Um desconhecido solicitar transferências para uma conta indicada.</li>
+      <li>Um link parecer estranho ou oferecer vantagens boas demais para ser verdade.</li>
+      <li>Uma pessoa se recusar a confirmar sua identidade por outro canal.</li>
+    </ul>
+        </div>
+      </details>
+      <details class="pergunta">
+        <summary>Painel 3 — Cinco atitudes para se proteger</summary>
+        <div class="pergunta__corpo painel__texto">
+          <p class="painel__atencao"><strong>Atenção:</strong> logotipos, fotos e nomes conhecidos podem
+    ser copiados por golpistas. Não confie apenas na aparência da mensagem.</p>
+
+    <ol class="painel__numerada">
+      <li><strong>Crie senhas fortes.</strong> Utilize senhas longas, difíceis de adivinhar e
+      diferentes para cada conta. Evite nomes de familiares, animais de estimação e datas de nascimento.</li>
+      <li><strong>Ative a confirmação em duas etapas.</strong> Essa função adiciona uma camada extra
+      de proteção ao WhatsApp e a outros serviços que oferecem esse recurso.</li>
+      <li><strong>Não compartilhe informações pessoais.</strong> Nunca informe senhas ou códigos
+      de verificação por telefone ou mensagem.</li>
+      <li><strong>Verifique antes de clicar.</strong> Acesse aplicativos e sites oficiais diretamente,
+      sem utilizar links recebidos de fontes desconhecidas.</li>
+      <li><strong>Peça ajuda quando tiver dúvidas.</strong> Converse com alguém de confiança e
+      confirme as informações antes de realizar pagamentos ou fornecer dados.</li>
+    </ol>
+
+    <p class="painel__ouro"><strong>As três regras de ouro:</strong><br>
+    Senha e código, a ninguém!<br>
+    Desligue e confira pelo canal oficial!<br>
+    Na dúvida, peça ajuda!</p>
+        </div>
+      </details>
+      <details class="pergunta">
+        <summary>Painel 4 — Como criar uma senha mais segura</summary>
+        <div class="pergunta__corpo painel__texto">
+          <p>Uma boa estratégia é combinar palavras aleatórias e sem relação entre si, criando uma
+    senha longa e fácil de memorizar.</p>
+    <p>Evite informações pessoais e não reutilize a mesma senha em diferentes contas,
+    especialmente no banco.</p>
+    <p class="painel__atencao"><strong>Importante:</strong> os exemplos usados em demonstrações
+    não devem ser adotados como senhas reais.</p>
+
+    <h4>Caí em um golpe. E agora?</h4>
+    <p>Não entre em desespero. Agir rapidamente pode ajudar a reduzir os prejuízos.</p>
+        </div>
+      </details>
+      <details class="pergunta">
+        <summary>Painel 5 — O que fazer em caso de fraude</summary>
+        <div class="pergunta__corpo painel__texto">
+          <ol class="painel__numerada">
+      <li><strong>Entre em contato com o banco.</strong> Utilize o telefone oficial indicado no cartão
+      ou os canais do aplicativo. Informe o ocorrido e solicite orientações sobre as medidas
+      disponíveis para proteger sua conta e tentar recuperar o dinheiro.</li>
+      <li><strong>Registre um boletim de ocorrência.</strong> Procure uma delegacia ou verifique a
+      possibilidade de registro pela Delegacia Eletrônica.</li>
+      <li><strong>Proteja suas contas.</strong> Troque as senhas comprometidas e revise as opções
+      de segurança dos aplicativos.</li>
+      <li><strong>Guarde as provas.</strong> Preserve mensagens, números de telefone, comprovantes
+      de transferência, links e demais informações relacionadas ao golpe.</li>
+      <li><strong>Avise pessoas próximas.</strong> Se sua conta tiver sido invadida ou utilizada para
+      solicitar dinheiro, informe seus contatos para evitar novas vítimas.</li>
+      <li><strong>Cuidado com novos golpes.</strong> Não pague taxas antecipadas a desconhecidos
+      que prometem recuperar seu dinheiro.</li>
+    </ol>
+
+    <p class="painel__ouro"><strong>Lembre-se:</strong> cair em um golpe não é motivo de vergonha.
+    Procure ajuda e denuncie.</p>
+        </div>
+      </details>
+      <details class="pergunta">
+        <summary>Painel 6 — Onde buscar orientação</summary>
+        <div class="pergunta__corpo painel__texto">
+          <ul>
+      <li><strong>CRAS:</strong> procure a unidade de referência para orientações e encaminhamentos
+      relacionados à assistência social.</li>
+      <li><strong>CREAS:</strong> pode oferecer atendimento e orientação dentro de suas atribuições.</li>
+      <li><strong>Banco:</strong> utilize exclusivamente os canais oficiais da instituição.</li>
+      <li><strong>Polícia:</strong> procure uma delegacia ou os canais oficiais de registro de ocorrência.</li>
+      <li><strong>Prefeitura e Secretaria Municipal de Assistência Social:</strong> consulte os canais
+      oficiais para obter informações e orientações.</li>
+    </ul>
+
+    <p class="painel__ouro"><strong>Segurança digital é cidadania!</strong></p>
+
+    <p>O projeto Conexão Cidadã, Segurança e Inclusão Digital busca promover o acesso à informação
+    e incentivar o uso mais seguro da internet, do celular e dos serviços digitais. Compartilhe
+    estas informações com sua família e seus amigos — a prevenção começa com a informação.</p>
+    <p class="painel__credito">Realização: Instituto Federal de Educação, Ciência e Tecnologia de
+    São Paulo (IFSP) — Campus Catanduva.<br>
+    Parceria: Prefeitura de Monte Alto e entidades colaboradoras.</p>
+        </div>
+      </details>
     </div>
-  </div>
-</section>
-
-<section class="secao">
-  <div class="container">
-    <div class="duas-colunas">
-      <div class="duas-colunas__lado">
-        <p class="rotulo">Cronograma</p>
-        <h2 class="titulo-secao">Três fases até o <span class="realce">relatório final</span></h2>
-        <p class="texto-guia">As datas seguem o planejamento detalhado aprovado na Fase 2.</p>
-        <ul class="lista-marcada"><li><strong>17/08/2026</strong> — Início da execução: Aprovação da Fase 2 e reunião de partida da equipe.</li>
-<li><strong>11/09/2026</strong> — Parcerias confirmadas: Definição da palestra articulada, do evento aberto e dos locais.</li>
-<li><strong>30/09/2026</strong> — Materiais prontos: Cartilha, panfleto com QR Code, formulário e recurso digital testados.</li>
-<li><strong>24/10/2026</strong> — Grande encontro: Palestra articulada, evento aberto e aplicação das avaliações.</li>
-<li><strong>11/12/2026</strong> — Relatório final: Entrega do relatório com os resultados das duas frentes.</li></ul>
-      </div>
-      <div class="duas-colunas__lado">
-        <ol class="fases lista-limpa"><li class="fase">
-        <span class="fase__periodo">18/08 a 30/09 de 2026</span>
-        <h3 class="fase__titulo">Planejamento e preparação</h3><p>Levantamento dos golpes mais frequentes, elaboração dos conteúdos, contato com os parceiros, produção da cartilha e dos panfletos, criação e teste do formulário e do QR Code, e revisão de acessibilidade com o professor orientador.</p></li>
-<li class="fase">
-        <span class="fase__periodo">01/10 a 06/11 de 2026</span>
-        <h3 class="fase__titulo">Execução das ações</h3><p>Divulgação nas redes dos parceiros, preparação dos espaços e, em 24 de outubro, realização da palestra articulada e do evento aberto, com orientação individual, entrega dos materiais e aplicação dos questionários.</p></li>
-<li class="fase">
-        <span class="fase__periodo">27/10 a 16/12 de 2026</span>
-        <h3 class="fase__titulo">Encerramento e documentação</h3><p>Organização dos registros por frente de ação, consolidação dos dados, reunião de avaliação da equipe, relatório final até 11 de dezembro e apresentação dos resultados aos parceiros e à comunidade.</p></li></ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="secao secao--clara">
-  <div class="container">
-    <p class="rotulo">Indicadores de impacto</p>
-    <h2 class="titulo-secao titulo-secao--largo">Como vamos <span class="realce">medir</span></h2>
-    <div class="numeros"><div class="numero revelar"><span class="numero__valor">60</span>
-        <p class="numero__rotulo">Participantes somando a palestra articulada e o evento aberto à comunidade.</p></div>
-<div class="numero revelar"><span class="numero__valor">80%</span>
-        <p class="numero__rotulo">De evolução entre o questionário inicial e o final, em respostas pareadas válidas.</p></div>
-<div class="numero revelar"><span class="numero__valor">80%</span>
-        <p class="numero__rotulo">De avaliação positiva, com participantes se sentindo mais preparados.</p></div></div>
-  </div>
-</section>
-
-<section class="secao" id="parceiros">
-  <div class="container">
-    <div class="duas-colunas">
-      <div class="duas-colunas__lado">
-        <p class="rotulo">Parcerias</p>
-        <h2 class="titulo-secao">Sozinhos não chegamos a <span class="realce">quem precisa</span></h2>
-        <p class="texto-guia">As instituições ao lado são parceiras potenciais, ainda em fase de confirmação.
-        São elas que abrem a porta dos grupos e ajudam a mobilizar a comunidade.</p>
-        <div class="acoes"><a class="botao botao--vazado" href="mailto:conexaocidada@ifsp.edu.br?subject=Quero%20ser%20parceiro">Quero ser parceiro</a></div>
-      </div>
-      <div class="duas-colunas__lado">
-        <ul class="lista-parceiros lista-limpa"><li class="parceiro"><h3 class="parceiro__nome">Prefeitura Municipal de Monte Alto</h3>
-        <p class="parceiro__papel">Articulação da palestra com o público da assistência municipal, apoio à mobilização, divulgação do evento aberto e cessão de espaço.</p>
-        <span class="etiqueta-pendente">A confirmar</span></li>
-<li class="parceiro"><h3 class="parceiro__nome">Secretaria Municipal de Assistência Social</h3>
-        <p class="parceiro__papel">Definição do público da palestra, encaminhamento dos participantes e articulação com a rede socioassistencial.</p>
-        <span class="etiqueta-pendente">A confirmar</span></li>
-<li class="parceiro"><h3 class="parceiro__nome">CRAS e CREAS de Monte Alto</h3>
-        <p class="parceiro__papel">Mobilização de beneficiários, indicação das necessidades do público e apoio na escolha do local e na realização das atividades.</p>
-        <span class="etiqueta-pendente">A confirmar</span></li>
-<li class="parceiro"><h3 class="parceiro__nome">Centro de Convivência da Pessoa Idosa e associações locais</h3>
-        <p class="parceiro__papel">Divulgação do evento aberto e aproximação do projeto com pessoas idosas e demais moradores.</p>
-        <span class="etiqueta-pendente">A confirmar</span></li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="secao secao--clara">
-  <div class="container">
-    <p class="rotulo">Agenda 2030</p>
-    <h2 class="titulo-secao titulo-secao--largo">Onde o projeto <span class="realce">se encaixa</span></h2>
-    <ul class="grade grade--3 lista-limpa"><li class="ods revelar"><span class="ods__numero">ODS 1</span>
-        <h3 class="ods__nome">Erradicação da pobreza</h3><p>Reduzir o risco de perdas financeiras causadas por golpes, protegendo recursos essenciais à subsistência de quem tem pouca renda.</p></li>
-<li class="ods revelar"><span class="ods__numero">ODS 4</span>
-        <h3 class="ods__nome">Educação de qualidade</h3><p>Oferecer conhecimento prático e acessível sobre segurança digital, fortalecendo o letramento digital e a autonomia.</p></li>
-<li class="ods revelar"><span class="ods__numero">ODS 10</span>
-        <h3 class="ods__nome">Redução das desigualdades</h3><p>Ampliar o acesso à informação e reduzir vulnerabilidades digitais entre pessoas de baixa renda, beneficiárias de programas sociais e pessoas idosas.</p></li></ul>
   </div>
 </section>
 
 <section class="secao secao--chamada">
   <div class="container chamada">
-    <h2 class="titulo-secao chamada__titulo">Quer trazer o projeto para o seu <span class="realce">grupo</span>?</h2>
-    <p class="chamada__texto">Fale com a equipe para combinar data, local e tamanho da turma.
-    As atividades e os materiais são gratuitos.</p>
-    <a class="botao" href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Falar com a equipe</a>
+    <h2 class="titulo-secao chamada__titulo">Conheça o projeto por <span class="realce">trás da cartilha</span></h2>
+    <p class="chamada__texto">
+      O Conexão Cidadã é um projeto de extensão do IFSP Campus Catanduva que leva palestras e
+      oficinas sobre golpes virtuais a Monte Alto. No site você encontra o projeto completo,
+      um teste de situações reais e a equipe.
+    </p>
+    <a class="botao" href="projeto.html">Ir para o site do projeto</a>
   </div>
 </section>
+
 </main>
 
-<footer class="rodape">
-  <div class="container rodape__topo">
-    <div>
-      <p class="rodape__logo"><span class="logo-ifsp"><img src="img/ifsp-logo.png" alt="Instituto Federal de São Paulo"></span></p>
-      <p class="rodape__texto">
-        Palestra, oficina e cartilha gratuitas sobre prevenção de golpes virtuais, para moradores
-        de Monte Alto — SP — com atenção a quem recebe benefícios sociais e a pessoas idosas.
-      </p>
-      <p class="rodape__aviso">
-        Nunca pedimos senha, código de verificação, número de cartão, dado bancário ou número de
-        benefício — nem nas atividades, nem por telefone, nem por mensagem.
-      </p>
-    </div>
-    <div>
-      <h2 class="rodape__titulo">Navegue</h2>
-      <ul class="rodape__lista">
-        <li><a href="index.html">Início</a></li><li><a href="informacoes.html">Informações</a></li><li><a href="sobrenos.html">Sobre Nós</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2 class="rodape__titulo">Participe</h2>
-      <ul class="rodape__lista">
-        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Inscrever%20meu%20grupo">Inscrever meu grupo</a></li>
-        <li><a href="mailto:conexaocidada@ifsp.edu.br?subject=Quero%20ser%20parceiro">Ser instituição parceira</a></li>
-        <li><a href="sobrenos.html#equipe">Conhecer a equipe</a></li>
-      </ul>
-    </div>
-    <div>
-      <h2 class="rodape__titulo">Onde encontrar</h2>
-      <ul class="rodape__lista">
-        <li>Ações em Monte Alto — SP</li>
-        <li>IFSP Campus Catanduva — Curso de ADS</li>
-        <li><a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a></li>
-      </ul>
-    </div>
-  </div>
+<footer class="rodape rodape--simples">
   <div class="container rodape__base">
-    <p>© 2026 Conexão Cidadã, Segurança e Inclusão Digital. Projeto de extensão universitária, gratuito e sem fins lucrativos.</p>
-    <p>Orientação: Prof. Dr. Kleber Sartorio.</p>
+    <p>© 2026 Conexão Cidadã, Segurança e Inclusão Digital · IFSP Campus Catanduva — Curso de ADS</p>
+    <p><a href="mailto:conexaocidada@ifsp.edu.br">conexaocidada@ifsp.edu.br</a> · <a href="projeto.html">Site do projeto</a></p>
   </div>
 </footer>
 
